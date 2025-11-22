@@ -1,8 +1,12 @@
 ---
+import "./logo.scss";
+
 const { class: className } = Astro.props;
+const Tag = Astro.url.pathname === "/" ? "div" : "a";
+const href = Tag === "a" ? "/" : undefined;
 ---
 
-<div class:list={[className, "logo"]}>
+<Tag class:list={[className, "logo"]} {href}>
 	<img
 		class="logo__img"
 		src="/assets/img/logo.svg"
@@ -10,4 +14,4 @@ const { class: className } = Astro.props;
 		width="209"
 		height="50"
 	/>
-</div>
+</Tag>

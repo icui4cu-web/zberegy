@@ -29,7 +29,7 @@ const { class: className } = Astro.props;
 			},
 		].map((partner) => (
 			<li class="partners__item">
-				<img class="partners__img" {...partner} alt="" />
+				<img class="partners__img" {...partner} alt="" loading="lazy" decoding="async" />
 			</li>
 		))
 	}
