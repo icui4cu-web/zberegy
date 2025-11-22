@@ -1,0 +1,17 @@
+.socials {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	font-size: 40px;
+
+	&__link {
+		display: block;
+		transition: filter .25s;
+	}
+
+	@media (hover) {
+		&__link:hover {
+			filter: brightness(1.3);
+		}
+	}
+}

@@ -1,0 +1,36 @@
+---
+import "./partners.scss";
+
+const { class: className } = Astro.props;
+---
+
+<ul class:list={[className, "partners"]}>
+	{
+		[
+			{
+				src: "/upload/partner-1.svg",
+				width: 292,
+				height: 312,
+			},
+			{
+				src: "/upload/partner-2.svg",
+				width: 62,
+				height: 80,
+			},
+			{
+				src: "/upload/partner-3.svg",
+				width: 70,
+				height: 80,
+			},
+			{
+				src: "/upload/partner-4.svg",
+				width: 60,
+				height: 80,
+			},
+		].map((partner) => (
+			<li class="partners__item">
+				<img class="partners__img" {...partner} alt="" />
+			</li>
+		))
+	}
+</ul>

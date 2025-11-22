@@ -1,0 +1,18 @@
+---
+import Btn from "@components/Btn/Btn.astro";
+import "./header.scss"
+
+import Logo from "@components/Logo/Logo.astro";
+import Search from "@components/Search/Search.astro";
+---
+
+<header class="header">
+	<div class="header__inner container container_size_lg">
+		<Logo class="header__logo" />
+		<Search class="header__search" />
+		<div class="header__actions">
+			<Btn as="a" href="#" theme="success" variant="fill">Створити Меморіал</Btn>
+			<Btn as="a" href="#" theme="info" variant="fill" iconEnd="coin">Підтримати Проект</Btn>
+		</div>
+	</div>
+</header>

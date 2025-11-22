@@ -1,0 +1,13 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div class:list={[className, "logo"]}>
+	<img
+		class="logo__img"
+		src="/assets/img/logo.svg"
+		alt="Збережи — Онлайн Меморіал"
+		width="209"
+		height="50"
+	/>
+</div>

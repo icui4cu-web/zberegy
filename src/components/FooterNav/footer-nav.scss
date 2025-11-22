@@ -1,0 +1,39 @@
+$marker-size: 6px;
+
+.footer-nav {
+	&__item {
+		position: relative;
+		padding-left: $marker-size + 10px;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	&__link {
+		transition: color .25s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: calc(50% - $marker-size / 2);
+			left: 0;
+			width: $marker-size;
+			height: $marker-size;
+			background-color: var(--color-main-1);
+			border-radius: 50%;
+			transition: background-color .25s;
+			pointer-events: none;
+		}
+	}
+
+	@media (hover) {
+		&__link:hover {
+			color: var(--color-main-2);
+
+			&::before {
+				background-color: var(--color-main-2);
+			}
+		}
+	}
+}

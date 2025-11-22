@@ -1,0 +1,54 @@
+.footer {
+	padding-block: 100px 30px;
+
+	&__title {
+		margin-bottom: 30px;
+	}
+
+	&__top {
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		column-gap: 24px;
+		padding-bottom: 54px;
+		border-bottom: 1px solid #DEDEDE;
+	}
+
+	&__logo-col {
+		grid-column: span 3;
+	}
+
+	&__logo {
+		margin-bottom: 23px;
+		max-width: min(100%, 209px);
+	}
+
+	&__navigations {
+		padding-top: 19px;
+		grid-column: 5 / -1;
+		display: flex;
+		justify-content: space-between;
+		column-gap: 24px;
+	}
+
+	&__nav-col {
+		max-width: 33.3333333%;
+	}
+
+	&__bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		column-gap: 24px;
+		padding-top: 50px;
+	}
+
+	&__partners {
+		max-width: 320px;
+	}
+
+	&__copyright {
+		margin-top: 38px;
+		text-align: center;
+		color: var(--color-text-3);
+	}
+}

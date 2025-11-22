@@ -1,0 +1,85 @@
+.btn {
+	min-width: min(100%, 270px);
+	min-height: 60px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 10px;
+	padding: 10px 20px;
+	border-radius: 100px;
+	border: 1px solid;
+	font: var(--font-button);
+	text-align: center;
+	transition-property: background-color, color, border-color;
+	transition-duration: .25s;
+
+	&_theme {
+		&_primary {
+			--bg: var(--color-main-1);
+			--bg-hover: #FCDE44;
+			--bg-active: #FFE874;
+			--color: var(--color-text-1);
+		}
+
+		&_success {
+			--bg: var(--color-main-3);
+			--bg-hover: #3BC559;
+			--bg-active: #31B04D;
+			--color: var(--color-white);
+		}
+
+		&_info {
+			--bg: var(--color-main-2);
+			--bg-hover: #3A8CDE;
+			--bg-active: #2C7BCA;
+			--color: var(--color-white);
+		}
+
+		&_dark {
+			--bg: #323232;
+			--bg-hover: #444;
+			--bg-active: #000;
+			--color: var(--color-white);
+		}
+	}
+
+	&_variant {
+		&_fill {
+			background-color: var(--bg);
+			color: var(--color);
+			border-color: transparent;
+
+			&:active {
+				background-color: var(--bg-active);
+			}
+		}
+
+		&_outline {
+			color: var(--bg);
+
+			&:active {
+				background-color: var(--bg-active);
+				border-color: var(--bg-active);
+				color: var(--color);
+			}
+		}
+	}
+
+	&__icon {
+		font-size: 30px;
+	}
+
+	@media (hover) {
+		&_variant {
+			&_fill:not(:active, :disabled):hover {
+				background-color: var(--bg-hover);
+			}
+
+			&_outline:not(:active, :disabled):hover {
+				background-color: var(--bg-hover);
+				border-color: var(--bg-hover);
+				color: var(--color);
+			}
+		}
+	}
+}

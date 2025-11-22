@@ -1,0 +1,30 @@
+---
+import "./socials.scss";
+
+import Icon from "@components/Icon/Icon.astro";
+---
+
+<ul class="socials">
+	{
+		[
+			{
+				title: "Facebook",
+				icon: "facebook",
+			},
+			{
+				title: "Youtube",
+				icon: "youtube",
+			},
+			{
+				title: "Twitter",
+				icon: "twitter",
+			},
+		].map(({ title, icon }) => (
+			<li class="socials__item">
+				<a class="socials__link" href="#" {title} target="_blank" rel="nofollow">
+					<Icon id={icon} />
+				</a>
+			</li>
+		))
+	}
+</ul>

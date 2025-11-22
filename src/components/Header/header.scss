@@ -1,0 +1,28 @@
+.header {
+	padding-block: 20px;
+	box-shadow: 0 2px 60px rgba($color: #323232, $alpha: 0.1);
+
+	&__inner {
+		display: flex;
+		align-items: center;
+	}
+
+	&__logo {
+		flex-shrink: 0;
+		margin-right: 70px;
+	}
+
+	&__search {
+		flex-grow: 1;
+		max-width: 500px;
+		margin-right: auto;
+	}
+
+	&__actions {
+		display: flex;
+		justify-content: flex-end;
+		column-gap: 20px;
+		margin-left: 20px;
+		flex-grow: 1;
+	}
+}

@@ -1,0 +1,14 @@
+---
+import "./icon.scss";
+
+interface Props {
+	id: string;
+	class?: string;
+}
+
+const { class: className, id } = Astro.props;
+---
+
+<svg class:list={[className, "icon"]}
+	><use href={`/assets/img/icons.svg#icon-${id}`}></use></svg
+>

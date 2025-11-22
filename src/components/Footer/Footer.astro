@@ -1,0 +1,58 @@
+---
+import "./footer.scss";
+
+import Logo from "@components/Logo/Logo.astro";
+import Title from "@components/Title/Title.astro";
+import FooterNav from "@components/FooterNav/FooterNav.astro";
+import Partners from "@components/Partners/Partners.astro";
+import Socials from "@components/Socials/Socials.astro";
+
+const { class: className } = Astro.props;
+---
+
+<footer class:list={[className, "footer container"]}>
+	<div class="footer__top">
+		<div class="footer__logo-col">
+			<Logo class="footer__logo" />
+			<p class="footer__about">
+				Шляхом додавання основної або детальної інформації. Введіть кілька деталей,
+				запросіть гостей і додайте пару спогадів. Це все, що вам потрібно зробити.
+			</p>
+		</div>
+		<div class="footer__navigations">
+			{
+				[
+					{
+						title: "Про Нас:",
+						nav: ["Про проект", "Новини", "Контакти"],
+					},
+					{
+						title: "Послуги:",
+						nav: ["Можливості сервісу", "Приклад Онлайн Меморіалу"],
+					},
+					{
+						title: "Важлива інформація:",
+						nav: ["Контакти", "Умови використання сайта", "Політика безпеки"],
+					},
+				].map(({ title, nav }) => (
+					<div class="footer__nav-col">
+						<Title class="footer__title" as="button" type="button" size="6">
+							{title}
+						</Title>
+						<FooterNav {nav} />
+					</div>
+				))
+			}
+		</div>
+	</div>
+	<div class="footer__bottom">
+		<address class="footer__contacts">
+			<Title class="footer__title" as="button" type="button" size="6">
+				Ми в соціальних мережах:
+			</Title>
+			<Socials />
+		</address>
+		<Partners class="footer__partners" />
+	</div>
+	<p class="footer__copyright">© 2022 Zberezhi.ua. Всі права захищені</p>
+</footer>

@@ -1,0 +1,13 @@
+.demo {
+	padding: 30px;
+	&__row {
+		margin-bottom: 24px;
+		display: grid;
+		grid-template-columns: repeat(4, 270px);
+		column-gap: 24px;
+	}
+
+	&__theme {
+		grid-column: 1 / -1;
+	}
+}

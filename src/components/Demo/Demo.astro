@@ -1,0 +1,65 @@
+---
+import "./demo.scss"
+import Btn from "@components/Btn/Btn.astro";
+---
+
+<div class="demo">
+	<div class="demo__row">
+		<div class="demo__theme">theme: dark</div>
+		<div class="demo__col">
+			<div>variant: fill</div>
+			<Btn as="a" href="#" theme="dark" variant="fill">Створити Меморіал</Btn>
+		</div>
+		<div class="demo__col">
+			<div>variant: outline</div>
+			<Btn as="a" href="#" theme="dark" variant="outline">Створити Меморіал</Btn>
+		</div>
+		<div class="demo__col">
+			<div>icon: start</div>
+			<Btn as="a" href="#" theme="dark" variant="fill" iconStart="coin"
+				>Створити Меморіал</Btn
+			>
+		</div>
+		<div class="demo__col">
+			<div>icon: end</div>
+			<Btn as="a" href="#" theme="dark" variant="fill" iconEnd="coin"
+				>Створити Меморіал</Btn
+			>
+		</div>
+	</div>
+	<div class="demo__row">
+		<div class="demo__theme">theme: primary</div>
+		<div class="demo__col">
+			<div>variant: fill</div>
+			<Btn as="a" href="#" theme="primary" variant="fill">Створити Меморіал</Btn>
+		</div>
+		<div class="demo__col">
+			<div>variant: outline</div>
+			<Btn as="a" href="#" theme="primary" variant="outline">Створити Меморіал</Btn
+			>
+		</div>
+	</div>
+	<div class="demo__row">
+		<div class="demo__theme">theme: success</div>
+		<div class="demo__col">
+			<div>variant: fill</div>
+			<Btn as="a" href="#" theme="success" variant="fill">Створити Меморіал</Btn>
+		</div>
+		<div class="demo__col">
+			<div>variant: outline</div>
+			<Btn as="a" href="#" theme="success" variant="outline">Створити Меморіал</Btn
+			>
+		</div>
+	</div>
+	<div class="demo__row">
+		<div class="demo__theme">theme: info</div>
+		<div class="demo__col">
+			<div>variant: fill</div>
+			<Btn as="a" href="#" theme="info" variant="fill">Створити Меморіал</Btn>
+		</div>
+		<div class="demo__col">
+			<div>variant: outline</div>
+			<Btn as="a" href="#" theme="info" variant="outline">Створити Меморіал</Btn>
+		</div>
+	</div>
+</div>

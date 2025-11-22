@@ -1,0 +1,7 @@
+---
+import "./title.scss";
+
+const { class: className, as: Tag, size } = Astro.props;
+---
+
+<Tag class:list={[className, `title title_size_${size}`]}><slot /></Tag>

@@ -1,0 +1,13 @@
+.title {
+	color: var(--color-text-1);
+	
+	&_size {
+		&_2 {
+			font: var(--font-h2);
+		}
+
+		&_6 {
+			font: var(--font-h6);
+		}
+	}
+}
