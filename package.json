@@ -12,6 +12,7 @@
     "astro": "^5.16.0"
   },
   "devDependencies": {
+    "astro-html-beautifier": "^1.0.4",
     "sass-embedded": "^1.93.3"
   }
 }
