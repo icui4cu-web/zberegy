@@ -1,0 +1,83 @@
+@use "@scss/var";
+@use "@scss/fn";
+
+.support {
+	position: relative;
+	isolation: isolate;
+	background: linear-gradient(to bottom, #fff, #F0FBFF 15% 85%, #fff);
+
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		pointer-events: none;
+		top: calc(50% - fn.rs(50px, 0px));
+		right: calc(50% + fn.rs(-100px, 200px));
+		transform: translateY(-50%);
+		background: url('/assets/img/donate-bg.svg') center / contain no-repeat;
+		width: fn.rs(551px, 1028px);
+		aspect-ratio: 1028/890;
+	}
+
+	&__title {
+		margin-bottom: fn.rs(16px, 24px);
+	}
+
+	&__description {
+		p+p {
+			margin-top: 1em;
+		}
+	}
+
+	&__btn {
+		margin-top: fn.rs(30px, 40px);
+		min-width: min(100%, 270px);
+	}
+
+	@media (width<480px) {
+		&__btn {
+			width: 100%;
+		}
+	}
+
+	@media (width<768px) {
+		&__text {
+			margin-bottom: 30px;
+			text-align: center;
+		}
+	}
+
+	@media (width>=768px) {
+		&__inner {
+			min-height: fn.rs(280px, 800px, 768px);
+			display: grid;
+			grid-template-columns: repeat(12, minmax(0, 1fr));
+			align-items: center;
+			column-gap: 24px;
+		}
+
+		&__text {
+			grid-column: span 6;
+		}
+
+		&__img {
+			grid-column: span 6;
+		}
+	}
+
+	@media (width>=1200px) {
+		&__text {
+			grid-column: span 5;
+		}
+
+		&__img {
+			grid-column: 7 / -1;
+		}
+	}
+
+	@media (width>=var.$container-width) {
+		&::before {
+			right: calc(50% + fn.rs(200px, 400px, 1296px, 1400px));
+		}
+	}
+}

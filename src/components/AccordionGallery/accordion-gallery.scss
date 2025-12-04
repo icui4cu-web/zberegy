@@ -1,0 +1,83 @@
+@use "@scss/fn";
+
+.accordion-gallery {
+	&__title {
+		margin-bottom: fn.rs(20px, 29px);
+	}
+
+	&__accordion {
+		&+& {
+			margin-top: fn.rs(0px, 8px);
+		}
+	}
+
+	&__slide,
+	&__mobile-img {
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		box-shadow: 1px 3px 30px rgba($color: #323232, $alpha: 0.1);
+	}
+
+	@media (width<992px) {
+		&__slider {
+			display: none;
+		}
+
+		&__mobile-img {
+			display: block;
+			margin: 24px auto 0;
+		}
+
+		&__btn {
+			display: none;
+		}
+	}
+
+	@media (width>=992px) {
+		display: grid;
+		grid-template-columns: minmax(0, 526px) minmax(0, 1fr);
+		column-gap: 48px;
+
+		&__mobile-img {
+			display: none;
+		}
+
+		&__slider {
+			align-self: center;
+			position: relative;
+			display: grid;
+			grid-template-areas: 'stack';
+			max-width: 636px;
+			margin-left: auto;
+		}
+
+		&__slide {
+			$gap: 18px;
+			grid-area: stack;
+			margin-top: calc(var(--index) * $gap);
+			margin-left: calc(var(--index) * $gap);
+			z-index: calc(var(--index) * -1);
+			max-width: calc(100% - (var(--accordion-gallery-length) - 1) * $gap);
+			transition-duration: .5s;
+			transition-property: margin;
+
+			&_active {
+				animation: accordion-gallery-opacity 1s;
+			}
+		}
+
+		&__btn {
+			margin-top: 40px;
+		}
+	}
+}
+
+@keyframes accordion-gallery-opacity {
+	from {
+		opacity: 0.5;
+	}
+
+	to {
+		opacity: 1;
+	}
+}

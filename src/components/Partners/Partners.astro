@@ -1,5 +1,10 @@
 ---
+import ConditionalWrapper from "@components/ConditionalWrapper/ConditionalWrapper.astro";
 import "./partners.scss";
+
+interface Props {
+	class?: string;
+}
 
 const { class: className } = Astro.props;
 ---
@@ -8,28 +13,38 @@ const { class: className } = Astro.props;
 	{
 		[
 			{
-				src: "/upload/partner-1.svg",
+				src: "/upload/partners/partner-1.svg",
 				width: 292,
 				height: 312,
+				href: "#",
 			},
 			{
-				src: "/upload/partner-2.svg",
+				src: "/upload/partners/partner-2.svg",
 				width: 62,
 				height: 80,
+				href: "#",
 			},
 			{
-				src: "/upload/partner-3.svg",
+				src: "/upload/partners/partner-3.svg",
 				width: 70,
 				height: 80,
 			},
 			{
-				src: "/upload/partner-4.svg",
+				src: "/upload/partners/partner-4.svg",
 				width: 60,
 				height: 80,
 			},
-		].map((partner) => (
+		].map(({ href, ...imgAttrs }) => (
 			<li class="partners__item">
-				<img class="partners__img" {...partner} alt="" loading="lazy" decoding="async" />
+				<ConditionalWrapper class="partners__link" as="a" {href} isActive={!!href}>
+					<img
+						class="partners__img"
+						{...imgAttrs}
+						alt=""
+						loading="lazy"
+						decoding="async"
+					/>
+				</ConditionalWrapper>
 			</li>
 		))
 	}

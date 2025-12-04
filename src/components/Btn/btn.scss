@@ -1,6 +1,5 @@
 .btn {
-	min-width: min(100%, 270px);
-	min-height: 60px;
+	min-height: 50px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -81,5 +80,9 @@
 				color: var(--color);
 			}
 		}
+	}
+
+	@media (width>=768px) {
+		min-height: 60px;
 	}
 }

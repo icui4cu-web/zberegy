@@ -1,0 +1,41 @@
+@use "@scss/fn";
+
+.btn-circle {
+	--circle-size: #{fn.rs(50px, 60px)};
+
+	position: relative;
+	isolation: isolate;
+	min-height: var(--circle-size);
+	display: inline-flex;
+	align-items: center;
+	padding: 10px fn.rs(26px, 30px);
+	border: none;
+	font: var(--font-button);
+	color: var(--color-text-1);
+	text-align: left;
+
+	&::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: var(--circle-size);
+		height: var(--circle-size);
+		background-color: var(--color-main-1);
+		border-radius: 100px;
+		transition: width .25s, background-color .25s;
+		pointer-events: none;
+	}
+
+	&:active::before {
+		background-color: #FFE874;
+	}
+
+	@media (hover) {
+		&:hover::before {
+			width: 100%;
+		}
+	}
+}

@@ -1,16 +1,55 @@
 ---
 import Icon from "@components/Icon/Icon.astro";
+import BtnIcon from "@components/BtnIcon/BtnIcon.astro";
 import "./search.scss";
+
+interface Props {
+	class?: string;
+}
 
 const { class: className } = Astro.props;
 ---
 
-<search class:list={[className, "search"]}>
-	<Icon class="search__icon" id="search" />
-	<input
-		class="search__field"
-		type="search"
-		placeholder="Пошук меморіалів"
-		minlength="2"
+<search class:list={[className, "search"]} data-search>
+	<form class="search__form">
+		<BtnIcon
+			class="search__toggle"
+			as="button"
+			type="button"
+			size="sm"
+			theme="light"
+			icon="chevron-right"
+			title="Закрити пошук"
+			data-close-btn
+		/>
+		<input
+			class="search__query"
+			type="search"
+			placeholder="Пошук меморіалів"
+			minlength="2"
+			data-input
+		/>
+		<button
+			class="search__reset"
+			type="button"
+			area-label="Очистити пошуковий запит"
+			data-reset-btn
+		>
+			<Icon id="x" />
+		</button>
+		<button class="search__submit">
+			<Icon class="search__submit-icon" id="search" />
+			<span class="search__label">Знайти</span>
+		</button>
+	</form>
+	<BtnIcon
+		class="search__toggle"
+		as="button"
+		type="button"
+		size="sm"
+		theme="light"
+		icon="search"
+		title="Відкрити пошук"
+		data-open-btn=""
 	/>
 </search>

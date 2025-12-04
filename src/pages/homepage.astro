@@ -1,0 +1,16 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/Hero/Hero.astro";
+import Concept from "@components/Concept/Concept.astro";
+import AccordionGallery from "@components/AccordionGallery/AccordionGallery.astro";
+import HowToCreate from "@components/HowToCreate/HowToCreate.astro";
+import Support from "@components/Support/Support.astro";
+---
+
+<Layout class="homepage">
+	<Hero class="homepage__hero" />
+	<Concept class="homepage__concept" />
+	<AccordionGallery class="homepage__capabilities" accordionName="capabilities" />
+	<HowToCreate class="homepage__guide" />
+	<Support />
+</Layout>

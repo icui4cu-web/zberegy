@@ -1,23 +1,28 @@
 ---
+import Icon from "@components/Icon/Icon.astro";
 import "./socials.scss";
 
-import Icon from "@components/Icon/Icon.astro";
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
-<ul class="socials">
+<ul class:list={[className, "socials"]}>
 	{
 		[
 			{
 				title: "Facebook",
-				icon: "facebook",
+				icon: "facebook-circle",
 			},
 			{
 				title: "Youtube",
-				icon: "youtube",
+				icon: "youtube-circle",
 			},
 			{
 				title: "Twitter",
-				icon: "twitter",
+				icon: "twitter-circle",
 			},
 		].map(({ title, icon }) => (
 			<li class="socials__item">

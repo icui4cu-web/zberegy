@@ -1,0 +1,44 @@
+.btn-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: var(--size);
+	height: var(--size);
+	padding: 0;
+	background-color: var(--bg);
+	color: var(--color);
+	border: none;
+	border-radius: 50%;
+	transition: background-color .25s;
+
+	&_size {
+		&_lg {
+			--size: 50px;
+			--icon-size: 20px;
+		}
+
+		&_sm {
+			--size: 30px;
+			--icon-size: 14px;
+		}
+	}
+
+	&_theme {
+		&_light {
+			--bg: #F2F2F2;
+			--bg-hover: #e2e0e0;
+			--color: var(--color-text-1);
+		}
+	}
+
+	&__icon {
+		font-size: var(--icon-size);
+	}
+
+	@media (hover) {
+		&:hover {
+			background-color: var(--bg-hover);
+		}
+	}
+}

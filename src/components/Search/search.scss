@@ -1,30 +1,148 @@
-.search {
-	position: relative;
+@use "@scss/var";
 
-	&__icon {
-		position: absolute;
-		left: 20px;
-		top: 50%;
-		transform: translateY(-50%);
-		color: var(--color-text-3);
-		font-size: 14px;
-		pointer-events: none;
-	}
-	
-	&__field {
-		width: 100%;
-		padding: 16px 43px;
-		border: 1px solid #DEDEDE;
+.search {
+	$root: &;
+	$transition-duration: .5s;
+
+	&__form {
+		display: flex;
+		box-shadow: inset 0 0 0 1px #DEDEDE;
 		border-radius: 100px;
-		transition: border-color .25s;
+		background-color: #fff;
+		transition: box-shadow .25s;
+
+		&:focus-within {
+			box-shadow: inset 0 0 0 1px #CEE6FF;
+		}
+	}
+
+	&__query {
+		min-width: 0;
+		flex-grow: 1;
+		border: none;
+		background-color: transparent;
 		font: var(--font-body-text);
+		text-overflow: ellipsis;
 
 		&::placeholder {
 			color: var(--color-text-3);
 		}
 
-		&:focus {
-			border-color: #CEE6FF;
+		&::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+			appearance: none;
+		}
+	}
+
+	&__reset {
+		align-self: center;
+		padding: 0;
+		width: 30px;
+		height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 20px;
+		transition: color .25s;
+
+		#{$root}__query:placeholder-shown+& {
+			display: none;
+		}
+	}
+
+	@media (hover) {
+		&__reset:hover {
+			color: #f00;
+		}
+	}
+
+	@media (width<var.$mobile-nav-breakpoint) {
+		position: relative;
+
+		&__form {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 0;
+			overflow: hidden;
+			visibility: hidden;
+			transition: width .3s, visibility .3s;
+
+			#{$root}_open & {
+				width: calc(100vw - var(--container-gutters) * 2 - 30px - 15px);
+				visibility: visible;
+			}
+		}
+
+		&__query {
+			height: 30px;
+			padding: 0 10px;
+		}
+
+		&__submit {
+			display: none;
+		}
+	}
+
+	@media (width>=var.$mobile-nav-breakpoint) {
+		&__form {
+			column-gap: 10px;
+		}
+
+		&__toggle {
+			display: none;
+		}
+
+		&__query {
+			height: 60px;
+			padding: 0 43px;
+		}
+
+		&__submit {
+			padding-inline: 19px;
+			border-radius: inherit;
+			display: flex;
+			align-items: center;
+			background-color: transparent;
+			color: var(--color-text-3);
+			font-size: 14px;
+			transition-property: background-color, color;
+			transition-duration: $transition-duration;
+
+			#{$root}:focus-within &,
+			#{$root}__query:not(:placeholder-shown)~& {
+				background-color: var(--color-main-3);
+				color: var(--color-white);
+			}
+
+			@supports not(interpolate-size: allow-keywords) {
+				transition: none;
+			}
+		}
+
+		&__submit-icon {
+			font-size: 16px;
+		}
+
+		&__label {
+			width: 0;
+			padding-left: 0;
+			overflow: hidden;
+			visibility: hidden;
+			color: var(--color-white);
+			transition-property: width, visibility, padding-left;
+			transition-duration: $transition-duration;
+
+			#{$root}:focus-within &,
+			#{$root}__query:not(:placeholder-shown)~#{$root}__submit & {
+				padding-left: 10px;
+				width: auto;
+				visibility: visible;
+			}
+
+			@supports not(interpolate-size: allow-keywords) {
+				transition: none;
+			}
 		}
 	}
 }

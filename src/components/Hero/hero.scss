@@ -1,5 +1,50 @@
+@use "sass:math";
+@use "@scss/fn";
+@use "@scss/var";
+
 .hero {
+	background: url('/assets/img/hero-244x208.png') bottom right no-repeat;
+
+	&__inner {
+		padding-block: 30px 48px;
+		min-height: fn.rs(0px, 820px, 360px, var.$container-lg-width);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__text {
+		p + p {
+			margin-top: 1em;
+		}
+	}
+
 	&__title {
-		margin-bottom: 30px;
+		margin-bottom: fn.rs(16px, 30px);
+	}
+
+	&__btn {
+		margin-top: fn.rs(30px, 40px);
+	}
+
+	@media (width>=640px) {
+		background: url('/assets/img/hero-1068x846.png') right center / 40% no-repeat;
+
+		&__inner {
+			padding-block: fn.rs(30px, 150px, 640px) fn.rs(48px, 150px, 640px);
+		}
+
+		&__text {
+			max-width: min(640px, 60%);
+		}
+	}
+
+	@media (width>=1097px) {
+		$background-width-from: math.div(40 * 1097px, 100);
+		background-size: fn.rs($background-width-from, 1068px, 1097px, 1920px);
+	}
+
+	@media (width>=1920px) {
+		background-position-x: left calc(50% + 426px);
 	}
 }

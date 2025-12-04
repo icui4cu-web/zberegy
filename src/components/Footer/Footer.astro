@@ -1,17 +1,21 @@
 ---
-import "./footer.scss";
-
 import Logo from "@components/Logo/Logo.astro";
 import Title from "@components/Title/Title.astro";
-import FooterNav from "@components/FooterNav/FooterNav.astro";
+import Nav from "@components/Nav/Nav.astro";
 import Partners from "@components/Partners/Partners.astro";
 import Socials from "@components/Socials/Socials.astro";
+import Icon from "@components/Icon/Icon.astro";
+import "./footer.scss";
+
+interface Props {
+	class?: string;
+}
 
 const { class: className } = Astro.props;
 ---
 
-<footer class:list={[className, "footer container"]}>
-	<div class="footer__top">
+<footer class:list={[className, "footer"]}>
+	<div class="footer__top container">
 		<div class="footer__logo-col">
 			<Logo class="footer__logo" />
 			<p class="footer__about">
@@ -23,36 +27,61 @@ const { class: className } = Astro.props;
 			{
 				[
 					{
-						title: "Про Нас:",
-						nav: ["Про проект", "Новини", "Контакти"],
+						title: "Збережи",
+						id: "footer-nav-about",
+						nav: ["Про нас", "Новини", "Контакти"],
 					},
 					{
-						title: "Послуги:",
-						nav: ["Можливості сервісу", "Приклад Онлайн Меморіалу"],
+						title: "Сервіси",
+						id: "footer-nav-services",
+						nav: ["Можливості", "Приклад меморіалу", "Питання та відповіді"],
 					},
 					{
-						title: "Важлива інформація:",
-						nav: ["Контакти", "Умови використання сайта", "Політика безпеки"],
+						title: "Важливе",
+						id: "footer-nav-info",
+						nav: ["Умови використання", "Політика безпеки", "Підтримати проект"],
 					},
-				].map(({ title, nav }) => (
+				].map(({ title, id, nav }) => (
 					<div class="footer__nav-col">
-						<Title class="footer__title" as="button" type="button" size="6">
+						<Title
+							class="footer__nav-title"
+							as="button"
+							type="button"
+							size={6}
+							aria-expanded="false"
+							aria-controls={id}
+							data-footer-nav-toggler
+						>
 							{title}
+							<Icon class="footer__title-arrow" id="chevron-down" />
 						</Title>
-						<FooterNav {nav} />
+						<Nav {id} {nav} placement="footer" />
 					</div>
 				))
 			}
 		</div>
 	</div>
-	<div class="footer__bottom">
+	<div class="footer__bottom container">
 		<address class="footer__contacts">
-			<Title class="footer__title" as="button" type="button" size="6">
+			<Title class="footer__socials-title" as="p" size={6}>
 				Ми в соціальних мережах:
 			</Title>
-			<Socials />
+			<Socials class="footer__socials" />
 		</address>
 		<Partners class="footer__partners" />
 	</div>
-	<p class="footer__copyright">© 2022 Zberezhi.ua. Всі права захищені</p>
+	<p class="footer__copyright container">© 2022 Zberezhi.ua. Всі права захищені</p>
 </footer>
+
+<script>
+	document.querySelectorAll("[data-footer-nav-toggler]").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const targetId = btn.getAttribute("aria-controls");
+			const nav = document.getElementById(targetId);
+			const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+			btn.setAttribute("aria-expanded", (!isOpen).toString());
+			nav.classList.toggle("_active");
+		});
+	});
+</script>

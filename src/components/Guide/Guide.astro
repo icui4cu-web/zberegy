@@ -1,0 +1,44 @@
+---
+import Title from "@components/Title/Title.astro";
+import "./guide.scss";
+---
+
+<div class="guide swiper" data-guide-slider>
+	<div class="guide__inner swiper-wrapper">
+		{
+			[
+				{
+					title: "Реєстрація",
+					description:
+						"Зареєструйтесь на сайті. Дотримуючись інструкцій додайте всю необхідну інформацію про себе.",
+				},
+				{
+					title: "Додавання інформації",
+					description:
+						"В особистому кабінеті створіть новий Онлайн Меморіал дотримуючись інструкцій та підказок.",
+				},
+				{
+					title: "Модерація",
+					description:
+						"Після перевірки модератором створений Онлайн Меморіал отримає унікальну адресу та буде доступний на сайті.",
+				},
+				{
+					title: "Меморіал створено!",
+					description:
+						"Вітаємо! Ви створили єдине місце для зберігання усіх спогадів про Вашу близьку людину.",
+				},
+			].map(({ title, description }) => (
+				<div class="guide__item swiper-slide">
+					<div class="guide__icon" />
+					<div class="guide__text">
+						<Title class="guide__title" as="h3" size={5}>
+							{title}
+						</Title>
+						<p class="guide__description">{description}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+	<div class="guide__pagination swiper-pagination"></div>
+</div>

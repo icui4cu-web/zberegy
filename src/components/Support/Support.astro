@@ -1,0 +1,39 @@
+---
+import Title from "@components/Title/Title.astro";
+import Btn from "@components/Btn/Btn.astro";
+import "./support.scss";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<section class:list={[className, "support"]}>
+	<div class="support__inner container">
+		<div class="support__text">
+			<Title class="support__title" as="h2" size={2}>Підтримай Збережи</Title>
+			<div class="support__description">
+				<p>Ми будемо дуже вдячні Вам за будь-яку підтримку нашого проекту.</p>
+			</div>
+			<Btn
+				class="support__btn"
+				as="a"
+				href="#"
+				theme="info"
+				variant="fill"
+				iconEnd="coin">Підтримати Проект</Btn
+			>
+		</div>
+		<img
+			class="support__img"
+			src="/assets/img/support.png"
+			alt=""
+			width="633"
+			height="498"
+			loading="lazy"
+			decoding="async"
+		/>
+	</div>
+</section>

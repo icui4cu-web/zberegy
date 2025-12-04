@@ -1,0 +1,37 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import Icon from "@components/Icon/Icon.astro";
+import "./btn-icon.scss";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	title: string;
+	icon?: string;
+	iconSize?: number;
+	size: "lg" | "md" | "sm";
+	theme: "light" | "white";
+	class?: string;
+}>;
+
+const {
+	class: className,
+	as: Tag,
+	size,
+	theme,
+	icon,
+	iconSize,
+	title,
+	...props
+} = Astro.props;
+---
+
+<Tag
+	class:list={[
+		className,
+		`btn-icon btn-icon_size_${size} btn-icon_theme_${theme}`,
+	]}
+	{title}
+	{...props}
+>
+	<Icon class="btn-icon__icon" id={icon} width={iconSize} height={iconSize} />
+</Tag>

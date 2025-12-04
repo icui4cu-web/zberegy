@@ -1,5 +1,14 @@
+@use "@scss/fn";
+@use "@scss/var";
+
+$font-open-sans: "Open Sans", sans-serif;
+$font-nunito-sans: "Nunito Sans", sans-serif;
+
 :root {
 	interpolate-size: allow-keywords;
+	scroll-padding-top: 70px;
+
+	--container-gutters: #{var.$container-gutters};
 
 	--color-white: #fff;
 	--color-main-1: #FAD101;
@@ -9,28 +18,32 @@
 	--color-text-2: #{rgba($color: #323232, $alpha: 0.8)};
 	--color-text-3: #{rgba($color: #323232, $alpha: 0.6)};
 
-	--page-font-family: "Open Sans", sans-serif;
-	--page-font-size: 16px;
-	--page-font-weight: 400;
-	--page-line-height: 1.625;
-	--page-background: #fff;
+	--font-button: #{600 fn.rs(16px, 18px)/1 $font-open-sans};
+	--font-body-text: #{400 fn.rs(14px, 16px)/fn.rs(22px, 26px) $font-open-sans};
+	--font-h1: #{700 fn.rs(30px, 52px)/fn.rs(40px, 60px) $font-nunito-sans};
+	--font-h2: #{700 fn.rs(26px, 46px)/fn.rs(32px, 54px) $font-nunito-sans};
+	--font-h3: #{700 fn.rs(24px, 36px)/fn.rs(28px, 46px) $font-nunito-sans};
+	--font-h4: #{700 fn.rs(20px, 30px)/fn.rs(26px, 40px) $font-nunito-sans};
+	--font-h5: #{700 fn.rs(18px, 24px)/fn.rs(24px, 28px) $font-nunito-sans};
+	--font-h6: #{700 fn.rs(16px, 18px)/fn.rs(22px, 24px) $font-nunito-sans};
 
-	--font-button: 600 18px/1 var(--page-font-family);
-	--font-body-text: 400 16px/1.625 var(--page-font-family);
-	--font-h2: 700 46px/1.173913043 "Nunito Sans";
-	--font-h6: 700 18px/1.333333333 "Nunito Sans";
+	@media (width>=var.$mobile-nav-breakpoint) {
+		scroll-padding-top: 120px;
+	}
 
 	@media (prefers-reduced-motion: no-preference) {
 		scroll-behavior: smooth;
 	}
 }
 
+::selection {
+	background-color: #fdf1b2;
+	color: #3488dd;
+}
+
 body {
-	font-family: var(--page-font-family);
-	font-size: var(--page-font-size);
-	font-weight: var(--page-font-weight);
-	line-height: var(--page-line-height);
+	font: var(--font-body-text);
 	color: var(--color-text-2);
-	background-color: var(--page-background);
+	background-color: #fff;
 	font-optical-sizing: auto;
 }

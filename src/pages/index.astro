@@ -1,8 +1,22 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Hero from "@components/Hero/Hero.astro";
 ---
 
 <Layout>
-	<!-- <Hero /> -->
+	<ol class="container" style="padding-block: 30px">
+		{
+			[
+				["Главная", "homepage"],
+				["Новини", "news"],
+				["Невдалий пошук", "search-no-results"],
+				["Іконки", "icons"],
+			].map(([text, slug]) => (
+				<li>
+					<a href={`/${slug}`} target="_blank">
+						{text}
+					</a>
+				</li>
+			))
+		}
+	</ol>
 </Layout>

@@ -1,0 +1,15 @@
+.news-list {
+	@media (width<768px) {
+		&__item:not(:last-child) {
+			margin-bottom: 30px;
+			padding-bottom: 30px;
+			border-bottom: 1px solid #DEDEDE;
+		}
+	}
+
+	@media (width>=768px) {
+		&__item:not(:last-child) {
+			margin-bottom: 40px;
+		}
+	}
+}

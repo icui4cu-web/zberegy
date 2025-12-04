@@ -1,0 +1,29 @@
+---
+import "./breadcrumbs.scss";
+
+interface Props {
+	list: Array<{
+		href?: string;
+		text: string;
+	}>;
+}
+
+let { list } = Astro.props;
+list.unshift({ href: "/", text: "Головна" });
+---
+
+<ol class="breadcrumbs container">
+	{
+		list.map(({ href, text }) => (
+			<li class="breadcrumbs__item">
+				{href ? (
+					<a class="breadcrumbs__link" {href}>
+						{text}
+					</a>
+				) : (
+					text
+				)}
+			</li>
+		))
+	}
+</ol>

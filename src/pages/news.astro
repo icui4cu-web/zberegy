@@ -1,0 +1,20 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Breadcrumbs from "@components/Breadcrumbs/Breadcrumbs.astro";
+import Title from "@components/Title/Title.astro";
+import NewsList from "@components/NewsList/NewsList.astro";
+import Pagination from "@components/Pagination/Pagination.astro";
+---
+
+<Layout class="news">
+	<Breadcrumbs
+		list={[
+			{
+				text: "Новини",
+			},
+		]}
+	/>
+	<Title class="page__title container" as="h1" size={1}>Новини</Title>
+	<NewsList />
+	<Pagination class="page__pagination" />
+</Layout>

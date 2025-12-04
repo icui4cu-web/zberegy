@@ -1,10 +1,12 @@
+@use "@scss/var";
+
 .container {
-	width: min(1300px, 100% - 15px * 2);
+	width: min(var.$container-width, 100% - var.$container-gutters * 2);
 	margin-inline: auto;
 
 	&_size {
 		&_lg {
-			width: min(1720px, 100% - 15px * 2);
+			width: min(var.$container-lg-width, 100% - var.$container-gutters * 2);
 		}
 	}
 }

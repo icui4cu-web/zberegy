@@ -2,8 +2,24 @@
 	color: var(--color-text-1);
 	
 	&_size {
+		&_1 {
+			font: var(--font-h1);
+		}
+
 		&_2 {
 			font: var(--font-h2);
+		}
+
+		&_3 {
+			font: var(--font-h3);
+		}
+
+		&_4 {
+			font: var(--font-h4);
+		}
+
+		&_5 {
+			font: var(--font-h5);
 		}
 
 		&_6 {

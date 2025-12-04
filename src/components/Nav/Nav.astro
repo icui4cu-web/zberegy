@@ -1,0 +1,23 @@
+---
+import "./nav.scss";
+
+interface Props {
+	nav: string[];
+	id?: string;
+	placement?: "footer";
+}
+
+const { nav, id, placement } = Astro.props;
+---
+
+<ul class:list={['nav', placement && `nav_placement_${placement}`]} {id}>
+	{
+		nav.map((text) => (
+			<li class="nav__item">
+				<a class="nav__link" href="#">
+					{text}
+				</a>
+			</li>
+		))
+	}
+</ul>

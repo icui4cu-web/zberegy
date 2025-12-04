@@ -1,0 +1,13 @@
+@use "@scss/fn";
+
+.homepage {
+	&__hero,
+	&__concept,
+	&__capabilities {
+		margin-bottom: fn.rs(60px, 160px);
+	}
+
+	&__guide {
+		margin-bottom: 60px;
+	}
+}

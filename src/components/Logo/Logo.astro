@@ -1,8 +1,12 @@
 ---
 import "./logo.scss";
 
+interface Props {
+	class?: string;
+}
+
 const { class: className } = Astro.props;
-const Tag = Astro.url.pathname === "/" ? "div" : "a";
+const Tag = Astro.url.pathname === "/homepage" ? "div" : "a";
 const href = Tag === "a" ? "/" : undefined;
 ---
 

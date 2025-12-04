@@ -1,3 +1,5 @@
+@use "@scss/fn";
+
 .page {
 	min-height: 100dvh;
 	display: flex;
@@ -5,6 +7,18 @@
 
 	& > * {
 		flex-shrink: 0;
+	}
+
+	&__main {
+		padding-bottom: 60px;
+	}
+
+	&__title {
+		margin-bottom: fn.rs(20px, 60px);
+	}
+
+	&__pagination {
+		margin-top: fn.rs(30px, 60px);
 	}
 
 	&__footer {

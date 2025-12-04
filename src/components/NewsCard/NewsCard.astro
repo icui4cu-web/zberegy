@@ -1,0 +1,47 @@
+---
+import Title from "@components/Title/Title.astro";
+import Icon from "@components/Icon/Icon.astro";
+import "./news-card.scss";
+
+interface Props {
+	slug: string;
+	preview: string;
+	title: string;
+	description: string;
+	date: string;
+	dateHuman: string;
+	class?: string;
+}
+
+const {
+	class: className,
+	slug,
+	preview,
+	title,
+	description,
+	date,
+	dateHuman,
+} = Astro.props;
+---
+
+<article class:list={[className, "news-card"]}>
+	<a class="news-card__link" href={slug}>
+		<img
+			class="news-card__img"
+			src={preview}
+			alt={title}
+			width="550"
+			height="350"
+			loading="lazy"
+			decoding="async"
+		/>
+		<div class="news-card__text">
+			<time class="news-card__date" datetime={date}>
+				<Icon class="news-card__date-icon" id="calendar" />
+				{dateHuman}
+			</time>
+			<Title class="news-card__title" as="h2" size={2}>{title}</Title>
+			<div class="news-card__description">{description}</div>
+		</div>
+	</a>
+</article>

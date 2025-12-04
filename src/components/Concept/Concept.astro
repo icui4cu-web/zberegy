@@ -1,0 +1,46 @@
+---
+import Title from "@components/Title/Title.astro";
+import BtnCircle from "@components/BtnCircle/BtnCircle.astro";
+import "./concept.scss";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<section class:list={[className, "concept"]}>
+	<div class="concept__inner container">
+		<iframe
+			class="concept__media"
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/D7SlK16o82o?si=Ro7iLwcDqpgApVs0"
+			title="YouTube video player"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			referrerpolicy="strict-origin-when-cross-origin"
+			allowfullscreen
+		>
+		</iframe>
+		<div class="concept__text">
+			<Title class="concept__title" as="h2" size={2}
+				>Що таке Онлайн Меморіал?</Title
+			>
+			<div class="concept__description-wrapper">
+				<div class="concept__description">
+					<p>
+						Онлайн Меморіал це не просто сторінка сайту з інформацією про людину, якої
+						вже нема в цьому світі. Це віртуальний пам'ятник або альбом спогадів, який
+						завжди буде поруч. Родичі, друзі, колеги по роботі можуть залишати на
+						сторінці Меморіалу слова підтримки, ділитися спогадами про людину,
+						додавати фотографії, до того ж робити це з будь якого куточку світу у будь
+						який час. Це дозволить зберегти пам'ять та передати її нащадкам. А, як
+						відомо, людина жива, доки жива пам’ять про неї…
+					</p>
+				</div>
+				<BtnCircle class="concept__btn" as="a" href="#">Детальніше</BtnCircle>
+			</div>
+		</div>
+	</div>
+</section>

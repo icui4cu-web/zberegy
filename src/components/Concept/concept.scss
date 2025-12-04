@@ -1,0 +1,104 @@
+@use "@scss/fn";
+
+.concept {
+	overflow-x: clip;
+
+	&__inner {
+		position: relative;
+
+		&::before {
+			content: '';
+			width: fn.rs(716px, 1097px);
+			aspect-ratio: 1248/1018;
+			position: absolute;
+			z-index: -1;
+			background: url('/assets/img/concept-bg.svg') center / contain no-repeat;
+
+			@supports not (overflow-x: clip) {
+				content: none !important;
+			}
+		}
+	}
+
+	&__media {
+		width: 100%;
+		height: auto;
+	}
+
+	&__title {
+		margin-bottom: fn.rs(20px, 24px);
+	}
+
+	&__description p+p {
+		margin-top: 1em;
+	}
+
+	&__btn {
+		margin-top: fn.rs(30px, 40px);
+	}
+
+	@media (width<768px) {
+		&__inner {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+
+			&::before {
+				top: 0;
+				left: 50%;
+				transform: translate(-10%, -10%);
+			}
+		}
+
+		&__media {
+			margin-bottom: 20px;
+			aspect-ratio: 330/218;
+		}
+	}
+
+	@media (width>=768px) {
+		&__inner {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: 24px;
+
+			&::before {
+				top: 50%;
+				left: 0;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&__title {
+			grid-column: 1 / -1;
+		}
+
+		&__media {
+			height: 100%;
+		}
+	}
+
+	@media (width<992px) {
+		&__text {
+			display: contents;
+		}
+
+		&__title {
+			order: -1;
+		}
+	}
+
+	@media (width>=992px) {
+		&__text {
+			max-width: 526px;
+			margin-left: auto;
+		}
+	}
+
+	@media (width>=1200px) {
+		&__media {
+			height: auto;
+			aspect-ratio: 636/440;
+		}
+	}
+}

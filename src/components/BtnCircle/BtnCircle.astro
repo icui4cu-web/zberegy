@@ -1,0 +1,13 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+import "./btn-circle.scss";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	class?: string;
+}>;
+
+const { class: className, as: Tag, ...props } = Astro.props;
+---
+
+<Tag class:list={[className, "btn-circle"]} {...props}><slot /></Tag>

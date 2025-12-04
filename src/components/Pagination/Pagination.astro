@@ -1,0 +1,38 @@
+---
+import Icon from "@components/Icon/Icon.astro";
+import "./pagination.scss";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<ol class:list={[className, "pagination container"]}>
+	<li class="pagination__item">
+		<div class="pagination__arrow">
+			<Icon id="arrow-left" />
+		</div>
+	</li>
+	<li class="pagination__item">
+		<span class="pagination__link pagination__link_current">1</span>
+	</li>
+	<li class="pagination__item">
+		<a class="pagination__link" href="#">2</a>
+	</li>
+	<li class="pagination__item">
+		<a class="pagination__link" href="#">3</a>
+	</li>
+	<li class="pagination__item">
+		<span class="pagination__dots">...</span>
+	</li>
+	<li class="pagination__item">
+		<a class="pagination__link" href="#">17</a>
+	</li>
+	<li class="pagination__item">
+		<a class="pagination__arrow" href="#">
+			<Icon id="arrow-right" />
+		</a>
+	</li>
+</ol>

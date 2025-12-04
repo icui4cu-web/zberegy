@@ -1,0 +1,82 @@
+@use "sass:math";
+
+.news-card {
+	&__img {
+		margin-bottom: 10px;
+		width: 100%;
+		border-radius: 10px;
+		aspect-ratio: 550/350;
+		object-fit: cover;
+	}
+
+	&__date {
+		margin-bottom: 10px;
+		display: flex;
+		align-items: center;
+		column-gap: 6px;
+		color: var(--color-text-3);
+	}
+
+	&__date-icon {
+		font-size: 18px;
+		color: var(--color-main-2);
+	}
+
+	&__title {
+		margin-bottom: 10px;
+		transition: color .25s;
+	}
+
+	&__description {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	@media (width<768px) {
+		&__img {
+			display: block;
+			max-width: 550px;
+			margin-inline: auto;
+		}
+		
+	}
+
+	@media (width>=768px) {
+		&__link {
+			display: flex;
+			column-gap: 30px;
+		}
+
+		&__img {
+			margin-bottom: 0;
+			flex-shrink: 0;
+			width: math.div(550px * 100%, 1300px);
+		}
+
+		&__text {
+			align-self: center;
+		}
+
+		&__title {
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+	}
+
+	@media (width>=992px) {
+		&__date,
+		&__title {
+			margin-bottom: 20px;
+		}
+	}
+
+	@media (hover) {
+		&__link:hover &__title {
+			color: var(--color-main-2);
+		}
+	}
+}

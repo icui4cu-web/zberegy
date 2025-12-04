@@ -1,0 +1,59 @@
+@use "@scss/fn";
+
+.accordion {
+	$root: &;
+
+	&__title {
+		$arrow-size: 16px;
+		position: relative;
+		display: block;
+		padding: 10px #{$arrow-size + 10px} 10px 0;
+		border-bottom: 1px solid #DEDEDE;
+		font: 600 16px/1.375 'Nunito Sans', sans-serif;
+		color: var(--color-text-1);
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			height: 2px;
+			width: $arrow-size;
+			background-color: var(--color-main-1);
+		}
+
+		&::after {
+			transform: rotate(-90deg);
+			transition: transform .25s;
+
+			#{$root}[open] & {
+				transform: none;
+			}
+		}
+	}
+
+	&__description {
+		padding-block: fn.rs(20px, 10px) 20px;
+		border-bottom: 1px solid #DEDEDE;
+	}
+
+	@media (width>=576px) {
+		&__title {
+			padding-block: 12px;
+			font: 700 18px/1.333333333 'Nunito Sans', sans-serif;
+		}
+	}
+
+	@supports (interpolate-size: allow-keywords) {
+		&::details-content {
+			transition: height 0.5s ease, content-visibility 0.5s ease allow-discrete;
+			height: 0;
+			overflow: hidden;
+		}
+
+		&[open]::details-content {
+			height: auto;
+		}
+	}
+}

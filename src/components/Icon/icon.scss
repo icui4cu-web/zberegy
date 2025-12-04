@@ -1,9 +1,13 @@
 .icon {
 	flex-shrink: 0;
 	display: block;
-	width: 1em;
-	height: 1em;
 	stroke-width: 0;
 	stroke: currentColor;
 	fill: currentColor;
+}
+.icon:not([width]) {
+	width: 1em;
+}
+.icon:not([height]) {
+	height: 1em;
 }

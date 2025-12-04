@@ -1,7 +1,16 @@
 ---
+import type { HTMLTag, Polymorphic } from "astro/types";
 import "./title.scss";
 
-const { class: className, as: Tag, size } = Astro.props;
+type Props<Tag extends HTMLTag> = Polymorphic<{
+	as: Tag;
+	class?: string;
+	size: 1 | 2 | 3 | 4 | 5 | 6;
+}>;
+
+const { class: className, as: Tag, size, ...rest } = Astro.props;
 ---
 
-<Tag class:list={[className, `title title_size_${size}`]}><slot /></Tag>
+<Tag class:list={[className, `title title_size_${size}`]} {...rest}
+	><slot /></Tag
+>

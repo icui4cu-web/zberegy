@@ -3,8 +3,12 @@
 	flex-wrap: wrap;
 	gap: 30px 40px;
 
+	&__link {
+		display: block;
+	}
+
 	&__img {
-		max-height: 80px;
+		max-height: var(--partners-logo-height, 80px);
 		width: auto;
 	}
 }

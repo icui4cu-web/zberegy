@@ -1,0 +1,37 @@
+@use "@scss/fn";
+
+.breadcrumbs {
+	padding-block: fn.rs(30px, 60px);
+	display: flex;
+	flex-wrap: wrap;
+	color: var(--color-text-3);
+
+	&__item:not(:last-child) {
+		position: relative;
+		padding-right: 26px;
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: 12px;
+			top: 50%;
+			transform: translateY(-50%) rotate(45deg);
+			width: 7px;
+			height: 7px;
+			border-top: 1px solid var(--color-main-2);
+			border-right: 1px solid var(--color-main-2);
+		}
+	}
+
+	&__link {
+		color: var(--color-main-2);
+		text-decoration: underline transparent;
+		transition: text-decoration-color .25s;
+	}
+
+	@media (hover) {
+		&__link:hover {
+			text-decoration-color: currentColor;
+		}
+	}
+}

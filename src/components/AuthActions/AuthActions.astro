@@ -1,0 +1,19 @@
+---
+import Icon from "@components/Icon/Icon.astro";
+import "./auth-actions.scss";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={[className, "auth-actions"]}>
+	<div class="auth-actions__icon-holder">
+		<Icon id="user" />
+	</div>
+	<a class="auth-actions__link" href="#">Вхід</a>
+	<div aria-hidden="true">/</div>
+	<a class="auth-actions__link" href="#">Реєстрація</a>
+</div>

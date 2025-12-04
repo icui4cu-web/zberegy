@@ -1,18 +1,37 @@
 ---
-import Btn from "@components/Btn/Btn.astro";
-import "./header.scss"
-
 import Logo from "@components/Logo/Logo.astro";
 import Search from "@components/Search/Search.astro";
+import Btn from "@components/Btn/Btn.astro";
+import BtnIcon from "@components/BtnIcon/BtnIcon.astro";
+import "./header.scss";
 ---
 
 <header class="header">
 	<div class="header__inner container container_size_lg">
+		<BtnIcon
+			class="header__nav-btn"
+			as="button"
+			type="button"
+			size="sm"
+			theme="light"
+			icon="menu"
+			title="Відкрити меню"
+			data-mobile-nav-open
+		/>
 		<Logo class="header__logo" />
 		<Search class="header__search" />
 		<div class="header__actions">
-			<Btn as="a" href="#" theme="success" variant="fill">Створити Меморіал</Btn>
-			<Btn as="a" href="#" theme="info" variant="fill" iconEnd="coin">Підтримати Проект</Btn>
+			<Btn class="header__btn" as="a" href="#" theme="success" variant="fill"
+				>Створити Меморіал</Btn
+			>
+			<BtnIcon
+				as="a"
+				size="lg"
+				theme="light"
+				href="#"
+				title="Авторизація"
+				icon="user"
+			/>
 		</div>
 	</div>
 </header>

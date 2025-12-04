@@ -1,0 +1,74 @@
+---
+import Icon from "@components/Icon/Icon.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout>
+	<div
+		class="container"
+		style="padding: 30px; display: flex; flex-wrap: wrap; gap: 20px; font-size: 24px; background: #f1f1f1;color: #000"
+	>
+		{
+			[
+				"facebook",
+				"google",
+				"privatbank",
+				"google-circle",
+				"facebook-circle-alt",
+				"facebook-circle",
+				"youtube-circle",
+				"twitter-circle",
+				"copy-circle",
+				"search",
+				"coin",
+				"user",
+				"user-alt",
+				"user-circle",
+				"chevrons-down",
+				"chevron-down",
+				"chevron-right",
+				"chevron-right-alt",
+				"arrow-left",
+				"arrow-right",
+				"menu",
+				"x",
+				"eye-blocked",
+				"star-empty",
+				"star-fill",
+				"lock",
+				"calendar",
+				"check",
+				"check-alt",
+				"heart-fill",
+				"orthodox",
+				"share",
+				"flag",
+				"candle",
+				"candle-alt",
+				"email",
+				"email-fill",
+				"email-fill-alt",
+				"camera",
+				"send",
+				"copy",
+				"play-fill",
+				"play",
+				"list-bullets",
+				"islam",
+				"judaism",
+				"taoism",
+				"pen",
+				"trash",
+				"cog",
+				"comments",
+				"bell",
+				"sign-out",
+				"exclamation",
+				"thumb-up",
+				"download",
+				"link",
+				"plus",
+			].map((id) => <Icon {id} />)
+		}
+	</div>
+</Layout>

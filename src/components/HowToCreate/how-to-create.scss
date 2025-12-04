@@ -1,0 +1,26 @@
+@use "@scss/fn";
+
+.how-to-create {
+	&__title {
+		margin-bottom: fn.rs(30px, 65px);
+		text-align: center;
+	}
+
+	&__actions {
+		margin-top: fn.rs(30px, 65px);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 20px 30px;
+	}
+
+	&__btn {
+		width: 100%;
+	}
+
+	@media (width>=480px) {
+		&__btn {
+			max-width: 270px;
+		}
+	}
+}

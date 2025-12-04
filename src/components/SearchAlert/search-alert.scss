@@ -1,0 +1,22 @@
+@use "@scss/fn";
+
+.search-alert {
+	box-shadow: 0 10px 60px rgba($color: #323232, $alpha: 0.1);
+	border-radius: 10px;
+
+	&__message {
+		padding: 66px 15px 20px;
+		background: url('/assets/img/arrow-up.svg') center top 20px / 40px no-repeat;
+		text-align: center;
+	}
+
+	@media (width>=768px) {
+		&__message {
+			max-width: 990px;
+			margin-inline: auto;
+			background-size: 80px;
+			background-position: left 40px center;
+			padding: fn.rs(15px, 90px, 576px) 40px fn.rs(15px, 90px, 576px) 143px;
+		}
+	}
+}

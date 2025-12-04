@@ -1,0 +1,32 @@
+.auth-actions {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	padding: 5px 10px;
+	border-radius: 10px;
+	background-color: #dbedff;
+	font-weight: 600;
+	font-size: 14px;
+
+	&__icon-holder {
+		flex-shrink: 0;
+		margin-right: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: #fff;
+	}
+
+	&__link {
+		transition: color .25s;
+	}
+
+	@media (hover) {
+		&__link:hover {
+			color: var(--color-main-2);
+		}
+	}
+}

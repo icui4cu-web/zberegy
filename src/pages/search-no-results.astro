@@ -1,0 +1,22 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Breadcrumbs from "@components/Breadcrumbs/Breadcrumbs.astro";
+import Title from "@components/Title/Title.astro";
+import SearchAlert from "@components/SearchAlert/SearchAlert.astro";
+---
+
+<Layout class="news">
+	<Breadcrumbs
+		list={[
+			{
+				text: "Результати пошуку",
+			},
+		]}
+	/>
+	<Title class="page__title container" as="h1" size={1}
+		>Меморіал за вказаним запитом <span class="text-danger">
+			не знайдено
+		</span></Title
+	>
+	<SearchAlert />
+</Layout>

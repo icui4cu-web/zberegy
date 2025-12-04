@@ -1,7 +1,7 @@
 ---
 import "@scss/index.scss";
-
 import Header from "@components/Header/Header.astro";
+import MobileNav from "@components/MobileNav/MobileNav.astro";
 import Footer from "@components/Footer/Footer.astro";
 ---
 
@@ -22,7 +22,10 @@ import Footer from "@components/Footer/Footer.astro";
 	</head>
 	<body class="page">
 		<Header />
-		<slot />
+		<MobileNav />
+		<div class="page__main"><slot /></div>
 		<Footer class="page__footer" />
+
+		<script src="@js/index.js"></script>
 	</body>
 </html>
