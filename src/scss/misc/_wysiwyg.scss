@@ -1,12 +1,32 @@
 @use "@scss/fn";
 
 .wysiwyg {
+	&> :first-child {
+		margin-top: 0 !important;
+	}
+
+	&> :last-child {
+		margin-bottom: 0 !important;
+	}
+
 	.contents {
 		margin-block: 30px fn.rs(30px, 40px);
 	}
 
 	p {
-		margin-block: 16px;
+		margin-block: fn.rs(22px, 26px);
+
+		&:has(> img:only-child) {
+			margin-block: fn.rs(20px, 40px);
+		}
+
+		:where(iframe, img, table):first-child {
+			margin-top: 0;
+		}
+
+		:where(iframe, img, table):last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	:where(iframe, img, table) {
@@ -18,6 +38,7 @@
 	}
 
 	h1:not([class]) {
+		margin-bottom: fn.rs(16px, 30px);
 		font: var(--font-h1);
 	}
 
