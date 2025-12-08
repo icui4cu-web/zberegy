@@ -1,0 +1,7 @@
+@use "@scss/fn";
+
+.about-us {
+	&__about {
+		margin-bottom: fn.rs(30px, 60px);
+	}
+}

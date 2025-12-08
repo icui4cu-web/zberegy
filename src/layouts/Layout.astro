@@ -4,6 +4,12 @@ import Header from "@components/Header/Header.astro";
 import MobileNav from "@components/MobileNav/MobileNav.astro";
 import Footer from "@components/Footer/Footer.astro";
 import Tooltip from "@components/Tooltip/Tooltip.astro";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
 ---
 
 <html lang="uk">
@@ -23,7 +29,7 @@ import Tooltip from "@components/Tooltip/Tooltip.astro";
 		<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<slot name="head" />
 	</head>
-	<body class="page">
+	<body class:list={["page", className]}>
 		<Header />
 		<MobileNav />
 		<div class="page__main"><slot /></div>
