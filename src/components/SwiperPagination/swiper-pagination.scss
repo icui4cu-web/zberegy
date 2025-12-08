@@ -1,0 +1,13 @@
+.swiper-pagination {
+	--swiper-pagination-bottom: 0;
+	--swiper-pagination-bullet-size: 6px;
+	--swiper-pagination-bullet-horizontal-gap: 10px;
+	--swiper-pagination-bullet-inactive-color: #E9E9E9;
+	--swiper-pagination-bullet-inactive-opacity: 1;
+	--swiper-pagination-color: var(--color-text-1);
+
+	.swiper-pagination-bullet-active {
+		outline: 1px solid;
+		outline-offset: 4px;
+	}
+}

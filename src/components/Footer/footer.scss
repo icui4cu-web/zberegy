@@ -15,8 +15,6 @@
 		$arrow-size: 20px;
 		$arrow-offset: 4px;
 
-		
-
 		&__navigations {
 			margin-bottom: 60px;
 			text-align: center;
@@ -67,14 +65,12 @@
 	}
 
 	@media (width>=768px) {
-		padding-block: 100px 30px;
+		padding-bottom: 30px;
 
 		&__top {
 			padding-bottom: 54px;
 			border-bottom: 1px solid #DEDEDE;
 		}
-
-		
 
 		&__navigations {
 			display: flex;

@@ -1,0 +1,16 @@
+.gallery {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	column-gap: 10px;
+
+	&__link {
+		border-radius: 10px;
+	}
+
+	&__img {
+		aspect-ratio: 1;
+		width: 100%;
+		object-fit: cover;
+		border-radius: inherit;
+	}
+}

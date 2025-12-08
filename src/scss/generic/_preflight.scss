@@ -199,7 +199,7 @@ a {
 }
 
 a:not([class]) {
-	color: #09e;
+	color: var(--color-main-2);
 }
 
 @media (hover: hover) {

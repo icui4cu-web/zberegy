@@ -1,0 +1,40 @@
+@use "@scss/fn";
+
+.adjacent-navigation {
+	display: flex;
+	align-items: center;
+	column-gap: 24px;
+
+	&__link {
+		display: flex;
+		align-items: center;
+		column-gap: fn.rs(6px, 20px);
+		color: var(--color-text-1);
+		font-size: fn.rs(10px, 18px);
+		line-height: 1;
+		font-weight: 600;
+		transition: color .25s;
+
+		&_dir_next {
+			margin-left: auto;
+		}
+	}
+
+	&__icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: fn.rs(26px, 60px);
+		aspect-ratio: 1;
+		border-radius: 50%;
+		background-color: var(--color-main-1);
+		font-size: fn.rs(10px, 30px);
+		color: var(--color-text-1);
+	}
+
+	@media (hover) {
+		&__link:hover {
+			color: var(--color-main-2);
+		}
+	}
+}

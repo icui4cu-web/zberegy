@@ -1,0 +1,47 @@
+.tooltip {
+	$root: &;
+	display: none;
+	background-color: #F2F2F2;
+	color: var(--color-text-1);
+	padding: 30px;
+	border-radius: 5px;
+	z-index: 9999;
+	font: var(--font-mini-text);
+	filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+
+	&_show {
+		display: block;
+	}
+
+	&__arrow {
+		position: absolute;
+		width: 16px;
+		height: 16px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			background: #F2F2F2;
+			transform: rotate(45deg);
+		}
+
+		#{$root}[data-popper-placement^='top'] & {
+			bottom: -4px;
+		}
+
+		#{$root}[data-popper-placement^='bottom'] & {
+			top: -4px;
+		}
+
+		#{$root}[data-popper-placement^='left'] & {
+			right: -4px;
+		}
+
+		#{$root}[data-popper-placement^='right'] & {
+			left: -4px;
+
+		}
+	}
+}

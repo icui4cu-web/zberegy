@@ -1,0 +1,62 @@
+@use "sass:math";
+@use "@scss/var";
+@use "@scss/fn";
+
+.news {
+	&__header {
+		margin-bottom: 30px;
+	}
+
+	&__preview {
+		aspect-ratio: 330/210;
+		border-radius: 10px;
+	}
+
+	&__title,
+	&__date {
+		margin-bottom: fn.rs(16px, 20px);
+	}
+
+	&__widget,
+	&__navigation {
+		margin-top: fn.rs(30px, 40px);
+	}
+
+	&__widget-title {
+		margin-bottom: fn.rs(16px, 30px);
+	}
+
+	&__navigation {
+		padding-top: fn.rs(30px, 40px);
+		border-top: 1px solid #DEDEDE;
+	}
+
+	@supports (initial-letter: 3) {
+		&__body>p:first-child::first-letter {
+			initial-letter: 3;
+			margin-right: 10px;
+		}
+	}
+	
+	@media (width<768px) {
+		&__preview {
+			margin-top: 30px;
+			max-width: min(100%, 370px);
+		}
+	}
+
+	@media (width>=768px) {
+		&__header {
+			display: flex;
+			align-items: flex-start;
+			column-gap: 30px;
+		}
+
+		&__preview {
+			aspect-ratio: 370/270;
+			order: -1;
+			width: math.div(370px * 100%, var.$container-sm-width);
+			flex-shrink: 0;
+		}
+	}
+}

@@ -1,0 +1,17 @@
+---
+import Icon from "@components/Icon/Icon.astro";
+import "./date.scss";
+
+interface Props {
+	date: string;
+	dateHuman: string;
+	class?: string;
+}
+
+const { class: className, date, dateHuman } = Astro.props;
+---
+
+<time class:list={[className, 'date']} datetime={date}>
+	<Icon class="date__icon" id="calendar" />
+	{dateHuman}
+</time>

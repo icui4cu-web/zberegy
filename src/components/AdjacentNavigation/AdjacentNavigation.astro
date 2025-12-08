@@ -1,0 +1,30 @@
+---
+import Icon from "@components/Icon/Icon.astro";
+import "./adjacent-navigation.scss";
+
+interface Props {
+	prev?: string;
+	next?: string;
+	class?: string;
+}
+
+const { class: className, prev, next } = Astro.props;
+---
+
+<div class:list={[className, "adjacent-navigation"]}>
+	<a class="adjacent-navigation__link" href={prev}>
+		<div class="adjacent-navigation__icon">
+			<Icon id="arrow-left" />
+		</div>
+		Попередня новина
+	</a>
+	<a
+		class="adjacent-navigation__link adjacent-navigation__link_dir_next"
+		href={next}
+	>
+		Наступна новина
+		<div class="adjacent-navigation__icon">
+			<Icon id="arrow-right" />
+		</div>
+	</a>
+</div>

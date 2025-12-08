@@ -54,6 +54,10 @@
 		&__reset:hover {
 			color: #f00;
 		}
+
+		&__submit:hover {
+			background-color: var(--bg-hover);
+		}
 	}
 
 	@media (width<var.$mobile-nav-breakpoint) {
@@ -99,24 +103,25 @@
 		}
 
 		&__submit {
+			--bg: transparent;
+			--bg-hover: transparent;
+			--color: var(--color-text-3);
 			padding-inline: 19px;
 			border-radius: inherit;
 			display: flex;
 			align-items: center;
-			background-color: transparent;
-			color: var(--color-text-3);
+			background-color: var(--bg);
+			color: var(--color);
 			font-size: 14px;
+			font-weight: 600;
 			transition-property: background-color, color;
 			transition-duration: $transition-duration;
 
 			#{$root}:focus-within &,
 			#{$root}__query:not(:placeholder-shown)~& {
-				background-color: var(--color-main-3);
-				color: var(--color-white);
-			}
-
-			@supports not(interpolate-size: allow-keywords) {
-				transition: none;
+				--bg: var(--color-main-3);
+				--bg-hover: #3BC559;
+				--color: var(--color-white);
 			}
 		}
 

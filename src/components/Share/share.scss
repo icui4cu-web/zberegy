@@ -1,0 +1,23 @@
+.share {
+	display: flex;
+	align-items: center;
+	gap: 5px 16px;
+	flex-wrap: wrap;
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	&__btn {
+		font-size: 26px;
+		transition: filter .25s;
+	}
+
+	@media (hover) {
+		&__btn:hover {
+			filter: brightness(1.2);
+		}
+	}
+}

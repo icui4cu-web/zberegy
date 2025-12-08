@@ -1,0 +1,11 @@
+---
+import "./swiper-pagination.scss";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={[className, "swiper-pagination"]}></div>

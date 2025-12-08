@@ -72,16 +72,3 @@ const { class: className } = Astro.props;
 	</div>
 	<p class="footer__copyright container">© 2022 Zberezhi.ua. Всі права захищені</p>
 </footer>
-
-<script>
-	document.querySelectorAll("[data-footer-nav-toggler]").forEach((btn) => {
-		btn.addEventListener("click", () => {
-			const targetId = btn.getAttribute("aria-controls");
-			const nav = document.getElementById(targetId);
-			const isOpen = btn.getAttribute("aria-expanded") === "true";
-
-			btn.setAttribute("aria-expanded", (!isOpen).toString());
-			nav.classList.toggle("_active");
-		});
-	});
-</script>

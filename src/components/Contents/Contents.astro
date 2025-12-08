@@ -1,0 +1,25 @@
+---
+import Title from "@components/Title/Title.astro";
+import "./contents.scss";
+
+interface Props {
+	list: string[];
+}
+
+const { list } = Astro.props;
+---
+
+<nav class="contents">
+	<Title class="contents__title" as="h6" size={6}>Зміст:</Title>
+	<ul class="contents__list">
+		{
+			list.map((text, index) => (
+				<li class="contents__item">
+					<a class="contents__link" href={`#heading-${index}`}>
+						{text}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>

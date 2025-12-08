@@ -1,0 +1,52 @@
+---
+import Icon from "@components/Icon/Icon.astro";
+import SwiperPagination from "@components/SwiperPagination/SwiperPagination.astro";
+import "./slider-gallery.scss";
+
+interface Props {
+	list: Array<[string, string]>;
+	galleryId: string;
+}
+
+const { list, galleryId } = Astro.props;
+---
+
+<div class="slider-gallery" data-slider-gallery>
+	<div class="slider-gallery__slider swiper">
+		<div class="swiper-wrapper">
+			{
+				list.map(([thumb, full]) => (
+					<a class="slider-gallery__link swiper-slide" href={full} data-gallery={galleryId}>
+						<img
+							class="slider-gallery__img"
+							src={thumb}
+							alt=""
+							width="390"
+							height="390"
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+				))
+			}
+		</div>
+		
+	</div>
+	<button
+		class="slider-gallery__btn slider-gallery__btn_dir_prev"
+		type="button"
+		aria-label="Попереднє фото"
+		data-btn
+	>
+		<Icon id="arrow-left" />
+	</button>
+	<button
+		class="slider-gallery__btn slider-gallery__btn_dir_next"
+		type="button"
+		aria-label="Наступне фото"
+		data-btn
+	>
+		<Icon id="arrow-right" />
+	</button>
+	<SwiperPagination class="slider-gallery__pagination" />
+</div>

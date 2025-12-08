@@ -6,15 +6,23 @@ import Layout from "@layouts/Layout.astro";
 	<ol class="container" style="padding-block: 30px">
 		{
 			[
-				["Главная", "homepage"],
-				["Новини", "news"],
+				["Головна", "homepage"],
+				["Усі новини", "news"],
+				["Новина", "news-page"],
 				["Невдалий пошук", "search-no-results"],
+				["Умови використання сайта", "terms-of-use"],
+				["Політика безпеки", "security-policy"],
+				["---------------------------------"],
 				["Іконки", "icons"],
 			].map(([text, slug]) => (
 				<li>
-					<a href={`/${slug}`} target="_blank">
-						{text}
-					</a>
+					{slug ? (
+						<a href={`/${slug}`} target="_blank">
+							{text}
+						</a>
+					) : (
+						<div>{text}</div>
+					)}
 				</li>
 			))
 		}

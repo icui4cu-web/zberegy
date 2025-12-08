@@ -3,6 +3,7 @@ import "@scss/index.scss";
 import Header from "@components/Header/Header.astro";
 import MobileNav from "@components/MobileNav/MobileNav.astro";
 import Footer from "@components/Footer/Footer.astro";
+import Tooltip from "@components/Tooltip/Tooltip.astro";
 ---
 
 <html lang="uk">
@@ -12,20 +13,29 @@ import Footer from "@components/Footer/Footer.astro";
 		<meta name="viewport" content="width=device-width" />
 		<title>Astro</title>
 		<!-- TODO del -->
-		<meta name="robots" content="noindex">
+		<meta name="robots" content="noindex" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,700;1,6..12,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
 			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
 		/>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+		<slot name="head" />
 	</head>
 	<body class="page">
 		<Header />
 		<MobileNav />
 		<div class="page__main"><slot /></div>
 		<Footer class="page__footer" />
+		<Tooltip />
 
+		<script
+			src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"
+			is:inline
+		></script>
+		<slot name="scripts" />
+		<script src="/assets/js/popper.min.js" is:inline></script>
 		<script src="@js/index.js"></script>
 	</body>
 </html>

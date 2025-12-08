@@ -20,12 +20,13 @@ $font-nunito-sans: "Nunito Sans", sans-serif;
 
 	--font-button: #{600 fn.rs(16px, 18px)/1 $font-open-sans};
 	--font-body-text: #{400 fn.rs(14px, 16px)/fn.rs(22px, 26px) $font-open-sans};
-	--font-h1: #{700 fn.rs(30px, 52px)/fn.rs(40px, 60px) $font-nunito-sans};
+	--font-h1: #{700 fn.rs(30px, 52px)/fn.rs(36px, 60px) $font-nunito-sans};
 	--font-h2: #{700 fn.rs(26px, 46px)/fn.rs(32px, 54px) $font-nunito-sans};
 	--font-h3: #{700 fn.rs(24px, 36px)/fn.rs(28px, 46px) $font-nunito-sans};
 	--font-h4: #{700 fn.rs(20px, 30px)/fn.rs(26px, 40px) $font-nunito-sans};
 	--font-h5: #{700 fn.rs(18px, 24px)/fn.rs(24px, 28px) $font-nunito-sans};
 	--font-h6: #{700 fn.rs(16px, 18px)/fn.rs(22px, 24px) $font-nunito-sans};
+	--font-mini-text: #{400 14px/20px $font-open-sans};
 
 	@media (width>=var.$mobile-nav-breakpoint) {
 		scroll-padding-top: 120px;

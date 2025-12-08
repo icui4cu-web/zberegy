@@ -1,0 +1,40 @@
+@use "@scss/fn";
+
+.contents {
+	&__title {
+		margin-bottom: 16px;
+	}
+
+	&__item {
+		position: relative;
+		padding-left: 18px;
+
+		&:not(:last-child) {
+			margin-bottom: fn.rs(6px, 10px);
+		}
+	}
+
+	&__link {
+		color: var(--color-main-2);
+		text-decoration: underline transparent;
+		transition: text-decoration-color .25s;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: calc(50% - 4px);
+			top: calc(0.5lh - 4px);
+			width: 8px;
+			height: 8px;
+			background-color: currentColor;
+			border-radius: 50%;
+		}
+	}
+
+	@media (hover) {
+		&__link:hover {
+			text-decoration-color: currentColor;
+		}
+	}
+}

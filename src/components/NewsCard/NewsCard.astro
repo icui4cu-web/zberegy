@@ -1,6 +1,6 @@
 ---
 import Title from "@components/Title/Title.astro";
-import Icon from "@components/Icon/Icon.astro";
+import Date from "@components/Date/Date.astro";
 import "./news-card.scss";
 
 interface Props {
@@ -36,10 +36,7 @@ const {
 			decoding="async"
 		/>
 		<div class="news-card__text">
-			<time class="news-card__date" datetime={date}>
-				<Icon class="news-card__date-icon" id="calendar" />
-				{dateHuman}
-			</time>
+			<Date class="news-card__date" {date} {dateHuman} />
 			<Title class="news-card__title" as="h2" size={2}>{title}</Title>
 			<div class="news-card__description">{description}</div>
 		</div>

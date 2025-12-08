@@ -1,0 +1,47 @@
+---
+import Title from "@components/Title/Title.astro";
+import Icon from "@components/Icon/Icon.astro";
+import "./share.scss";
+
+interface Props {
+	label?: string;
+	textToShare: string;
+}
+
+const { textToShare, label } = Astro.props;
+const textEncoded = encodeURIComponent(textToShare);
+const url = encodeURIComponent(Astro.url.href);
+---
+
+<div class="share">
+	{
+		label && (
+			<Title class="share__label" as="p" size={6}>
+				{label}
+			</Title>
+		)
+	}
+	<div class="share__list">
+		<a
+			class="share__btn"
+			href={`https://www.facebook.com/sharer.php?u=${url}`}
+			target="_blank"
+			aria-label="Поділитися у Facebook"
+			data-tooltip="Поділитися у Facebook"
+		>
+			<Icon id="facebook-circle" />
+		</a>
+		<a
+			class="share__btn"
+			href={`https://twitter.com/intent/tweet?url=${url}&text=${textEncoded}`}
+			target="_blank"
+			aria-label="Поділитися у X"
+			data-tooltip="Поділитися у X"
+		>
+			<Icon id="twitter" />
+		</a>
+		<button class="share__btn" type="button" data-tooltip="Копіювати" data-copy-type="url">
+			<Icon id="copy-circle" />
+		</button>
+	</div>
+</div>

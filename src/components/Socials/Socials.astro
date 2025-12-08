@@ -13,20 +13,20 @@ const { class: className } = Astro.props;
 	{
 		[
 			{
-				title: "Facebook",
+				title: "Ми в Facebook",
 				icon: "facebook-circle",
 			},
 			{
-				title: "Youtube",
+				title: "Ми в Youtube",
 				icon: "youtube-circle",
 			},
 			{
-				title: "Twitter",
-				icon: "twitter-circle",
+				title: "Ми в X",
+				icon: "twitter",
 			},
 		].map(({ title, icon }) => (
 			<li class="socials__item">
-				<a class="socials__link" href="#" {title} target="_blank" rel="nofollow">
+				<a class="socials__link" href="#" data-tooltip={title} target="_blank" rel="nofollow">
 					<Icon id={icon} />
 				</a>
 			</li>

@@ -37,12 +37,15 @@ galleries.forEach((gallery) => {
 
 				// Прокрутка для мобильных устройств (до 992px)
 				if (window.innerWidth < 992) {
+					const supportsInterpolateSize = CSS.supports('interpolate-size', 'allow-keywords');
+					const delay = supportsInterpolateSize ? 550 : 50;
+
 					setTimeout(() => {
 						this.scrollIntoView({
 							behavior: 'smooth',
 							block: 'start'
 						});
-					}, 50);
+					}, delay);
 				}
 			}
 		});
