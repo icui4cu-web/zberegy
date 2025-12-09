@@ -1,8 +1,8 @@
 @use "@scss/fn";
 
 .btn-circle {
+	$root: &;
 	--circle-size: #{fn.rs(50px, 60px)};
-
 	position: relative;
 	isolation: isolate;
 	min-height: var(--circle-size);
@@ -10,6 +10,7 @@
 	align-items: center;
 	padding: 10px fn.rs(26px, 30px);
 	border: none;
+	border-radius: 100px;
 	font: var(--font-button);
 	color: var(--color-text-1);
 	text-align: left;
@@ -24,13 +25,21 @@
 		width: var(--circle-size);
 		height: var(--circle-size);
 		background-color: var(--color-main-1);
-		border-radius: 100px;
+		border-radius: inherit;
 		transition: width .25s, background-color .25s;
-		pointer-events: none;
 	}
 
 	&:active::before {
 		background-color: #FFE874;
+	}
+
+	&._loading {
+		color: transparent;
+
+		&::before {
+			width: 100%;
+			background: var(--color-main-1) url('/assets/img/spinner.svg') center / 32px no-repeat;
+		}
 	}
 
 	@media (hover) {

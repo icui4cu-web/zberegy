@@ -6,17 +6,9 @@ import SearchAlert from "@components/SearchAlert/SearchAlert.astro";
 ---
 
 <Layout>
-	<Breadcrumbs
-		list={[
-			{
-				text: "Результати пошуку",
-			},
-		]}
-	/>
+	<Breadcrumbs list={[{ text: "Результати пошуку" }]} />
 	<Title class="page__title container" as="h1" size={1}
-		>Меморіал за вказаним запитом <span class="text-danger">
-			не знайдено
-		</span></Title
+		>Меморіал за вказаним запитом <span class="text-danger">не знайдено</span></Title
 	>
 	<SearchAlert />
 </Layout>

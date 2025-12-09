@@ -10,7 +10,7 @@ interface Props {
 const { nav, id, placement } = Astro.props;
 ---
 
-<ul class:list={['nav', placement && `nav_placement_${placement}`]} {id}>
+<ul class:list={["nav", placement && `nav_placement_${placement}`]} {id}>
 	{
 		nav.map((text) => (
 			<li class="nav__item">

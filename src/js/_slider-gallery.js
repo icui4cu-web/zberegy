@@ -1,6 +1,6 @@
 document.querySelectorAll('[data-slider-gallery]').forEach(container => {
 	const swiper = container.querySelector('.swiper')
-	const navBtns = container.querySelectorAll('[data-btn]')
+	const navBtns = container.querySelectorAll('[data-slider-gallery-btn]')
 	const pagination = container.querySelector('.swiper-pagination')
 
 	new Swiper(swiper, {
@@ -30,9 +30,3 @@ document.querySelectorAll('[data-slider-gallery]').forEach(container => {
 		}
 	})
 })
-
-if (typeof GLightbox !== 'undefined') {
-	GLightbox({
-		selector: "[data-gallery]"
-	})
-}

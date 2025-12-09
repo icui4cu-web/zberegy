@@ -1,0 +1,36 @@
+.form {
+	$root: &;
+
+	&__group {
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__label {
+		margin-bottom: 6px;
+		display: block;
+		width: fit-content;
+		font: var(--font-mini-text);
+		color: var(--color-text-3);
+	}
+
+	&__error {
+		display: none;
+		margin-top: 4px;
+		font: var(--font-mini-text);
+		color: red;
+
+		#{$root}._validated :user-invalid ~ & {
+			display: block;
+		}
+	}
+
+	&__control {
+		width: 100%;
+	}
+
+	&__actions {
+		margin-top: 30px;
+	}
+}

@@ -1,0 +1,10 @@
+@use "@scss/misc/placeholders" as *;
+
+.input {
+	@extend %form-control-base;
+	padding: 0 var(--padding-inline);
+
+	&::placeholder {
+		color: var(--color-text-3);
+	}
+}

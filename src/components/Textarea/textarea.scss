@@ -1,0 +1,18 @@
+@use "@scss/misc/placeholders" as *;
+
+.textarea {
+	@extend %form-control-base;
+	padding: 16px var(--padding-inline);
+
+	&::placeholder {
+		color: var(--color-text-3);
+	}
+}
+
+.textarea-counter {
+	float: right;
+	font: var(--font-mini-text);
+	color: var(--color-text-3);
+	white-space: nowrap;
+	margin-left: 10px;
+}

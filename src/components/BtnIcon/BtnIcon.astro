@@ -13,23 +13,11 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 	class?: string;
 }>;
 
-const {
-	class: className,
-	as: Tag,
-	size,
-	theme,
-	icon,
-	iconSize,
-	title,
-	...props
-} = Astro.props;
+const { class: className, as: Tag, size, theme, icon, iconSize, title, ...props } = Astro.props;
 ---
 
 <Tag
-	class:list={[
-		className,
-		`btn-icon btn-icon_size_${size} btn-icon_theme_${theme}`,
-	]}
+	class:list={[className, `btn-icon btn-icon_size_${size} btn-icon_theme_${theme}`]}
 	{title}
 	{...props}
 >

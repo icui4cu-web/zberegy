@@ -16,6 +16,7 @@ const data = [
 		description:
 			"<p>На сторінці Онлайн Меморіалу Ви маєте можливість розповісти світові історію життя близької Вам людини. Поділиться спогадами, подіями, які Вам запам’яталися, додайте фото та відео.</p>",
 		image: "/upload/gallery/biography.png",
+		isOpen: true
 	},
 	{
 		title: "Персоналізація",
@@ -40,23 +41,21 @@ const data = [
 		description:
 			"<p>Ви можете обрати один з “меморіальних поминків” для вшанування пам'яті людини і він буде відображений на сторінці Онлайн Меморіалу. І навіть якщо Ви знаходитесь за тисячі кілометрів, Ви маєте можливість вшанувати пам'ять людини відправивши такий пам'ятний подарунок.</p>",
 		image: "/upload/gallery/honoring-memory.png",
-	}
+	},
 ];
 ---
 
-<section class:list={[className, "accordion-gallery container"]} accordion-gallery>
+<section class:list={[className, "accordion-gallery container"]} data-accordion-gallery>
 	<div class="accordion-gallery__text">
-		<Title class="accordion-gallery__title" as="h2" size={2}
-			>Можливості Меморіалу</Title
-		>
+		<Title class="accordion-gallery__title" as="h2" size={2}>Можливості Меморіалу</Title>
 		{
-			data.map(({ title, description, image }, index) => (
+			data.map(({ title, description, image, isOpen }, index) => (
 				<Accordion
 					class="accordion-gallery__accordion"
 					{title}
+					{isOpen}
 					name={accordionName}
-					isOpen={!index}
-					accordion-gallery-trigger={index}
+					data-accordion-gallery-trigger={index}
 				>
 					<Fragment set:html={description} />
 					<img
@@ -71,9 +70,7 @@ const data = [
 				</Accordion>
 			))
 		}
-		<BtnCircle class="accordion-gallery__btn" as="a" href="#"
-			>Детальніше</BtnCircle
-		>
+		<BtnCircle class="accordion-gallery__btn" as="a" href="#">Детальніше</BtnCircle>
 	</div>
 	<div class="accordion-gallery__slider" style={`--accordion-gallery-length: ${data.length}`}>
 		{
@@ -87,7 +84,7 @@ const data = [
 					height="461"
 					loading="lazy"
 					decoding="async"
-					accordion-gallery-image
+					data-accordion-gallery-slide
 				/>
 			))
 		}

@@ -1,0 +1,15 @@
+---
+interface Props {
+	label: string;
+	for: string;
+	errorMsg?: string;
+}
+
+const { label, for: id, errorMsg } = Astro.props;
+---
+
+<div class="form__group">
+	<label class="form__label" for={id}>{label}</label>
+	<slot />
+	{errorMsg && <div class="form__error">{errorMsg}</div>}
+</div>

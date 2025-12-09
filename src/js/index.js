@@ -4,5 +4,8 @@ import "./_guide";
 import "./_accordion-gallery";
 import "./_tooltip";
 import "./_slider-gallery";
+import "./_gallery";
 import "./_copy";
+import "./_textarea";
+import "./_form";
 import "./_footer-nav";

@@ -13,37 +13,31 @@ const { class: className } = Astro.props;
 	{
 		[
 			{
-				src: "/upload/partners/partner-1.svg",
+				src: "/demo/partner-1.svg",
 				width: 292,
 				height: 312,
 				href: "#",
 			},
 			{
-				src: "/upload/partners/partner-2.svg",
+				src: "/demo/partner-2.svg",
 				width: 62,
 				height: 80,
 				href: "#",
 			},
 			{
-				src: "/upload/partners/partner-3.svg",
+				src: "/demo/partner-3.svg",
 				width: 70,
 				height: 80,
 			},
 			{
-				src: "/upload/partners/partner-4.svg",
+				src: "/demo/partner-4.svg",
 				width: 60,
 				height: 80,
 			},
 		].map(({ href, ...imgAttrs }) => (
 			<li class="partners__item">
 				<ConditionalWrapper class="partners__link" as="a" {href} isActive={!!href}>
-					<img
-						class="partners__img"
-						{...imgAttrs}
-						alt=""
-						loading="lazy"
-						decoding="async"
-					/>
+					<img class="partners__img" {...imgAttrs} alt="" loading="lazy" decoding="async" />
 				</ConditionalWrapper>
 			</li>
 		))

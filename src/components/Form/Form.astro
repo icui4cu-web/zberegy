@@ -1,0 +1,13 @@
+---
+import "./form.scss";
+
+interface Props {
+	action: string;
+}
+
+const { action, ...rest } = Astro.props;
+---
+
+<form class="form" {action} {...rest} method="post" data-form novalidate>
+	<slot />
+</form>

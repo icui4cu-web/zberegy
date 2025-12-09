@@ -1,9 +1,9 @@
-const tooltip = document.querySelector('[data-tooltip-container]');
+const tooltip = document.getElementById('tooltip');
 let popperInstance = null;
 
 export function showTooltip(button) {
 	const tooltipText = button.getAttribute('data-tooltip');
-	tooltip.querySelector('[data-content]').textContent = tooltipText;
+	tooltip.querySelector('.tooltip__content').textContent = tooltipText;
 
 	if (popperInstance) {
 		popperInstance.destroy();
@@ -28,7 +28,7 @@ export function showTooltip(button) {
 			{
 				name: 'arrow',
 				options: {
-					element: tooltip.querySelector('[data-arrow]'),
+					element: tooltip.querySelector('.tooltip__arrow'),
 				},
 			},
 		],

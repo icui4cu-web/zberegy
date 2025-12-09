@@ -1,0 +1,8 @@
+@use "@scss/misc/placeholders" as *;
+
+.select {
+	@extend %form-control-base;
+	padding: 0 calc(var(--padding-inline) + 32px) 0 var(--padding-inline);
+	appearance: none;
+	background: #fff url('/assets/img/select-arrow.svg') right 19px center / 22px no-repeat;
+}

@@ -12,21 +12,10 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 	class?: string;
 }>;
 
-const {
-	class: className,
-	as: Tag,
-	theme,
-	variant,
-	iconStart,
-	iconEnd,
-	...props
-} = Astro.props;
+const { class: className, as: Tag, theme, variant, iconStart, iconEnd, ...props } = Astro.props;
 ---
 
-<Tag
-	class:list={[className, `btn btn_theme_${theme} btn_variant_${variant}`]}
-	{...props}
->
+<Tag class:list={[className, `btn btn_theme_${theme} btn_variant_${variant}`]} {...props}>
 	{iconStart && <Icon class="btn__icon" id={iconStart} />}
 	<slot />
 	{iconEnd && <Icon class="btn__icon" id={iconEnd} />}

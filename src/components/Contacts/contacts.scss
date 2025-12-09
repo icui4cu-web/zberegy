@@ -1,0 +1,12 @@
+@use "sass:math";
+@use "@scss/var";
+
+.contacts {
+	&__inner {
+		max-width: 526px;
+	}
+
+	&__text {
+		margin-bottom: 40px;
+	}
+}

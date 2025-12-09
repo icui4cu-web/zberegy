@@ -1,38 +1,38 @@
 // Находим все компоненты галереи
-const galleries = document.querySelectorAll('[accordion-gallery]');
+const galleries = document.querySelectorAll('[data-accordion-gallery]');
 
 galleries.forEach((gallery) => {
 	// Находим триггеры и изображения внутри конкретной галереи
-	const triggers = gallery.querySelectorAll('[accordion-gallery-trigger]');
-	const images = gallery.querySelectorAll('[accordion-gallery-image]');
+	const triggers = gallery.querySelectorAll('[data-accordion-gallery-trigger]');
+	const slides = gallery.querySelectorAll('[data-accordion-gallery-slide]');
 
 	triggers.forEach((trigger) => {
 		trigger.addEventListener('toggle', function () {
 			if (this.open) {
 				// Получаем индекс открытого details
-				const activeIndex = parseInt(this.getAttribute('accordion-gallery-trigger'));
+				const activeIndex = parseInt(this.dataset.accordionGalleryTrigger);
 
-				// Активируем соответствующее фото
-				images.forEach((image, imgIndex) => {
-					if (imgIndex === activeIndex) {
-						// Активное фото
-						image.style.zIndex = '0';
-						image.style.marginTop = '0';
-						image.style.marginLeft = '0';
+				// Активируем соответствующий слайд
+				slides.forEach((slide, slideIndex) => {
+					if (slideIndex === activeIndex) {
+						// Активный trigger
+						slide.style.zIndex = '0';
+						slide.style.marginTop = '0';
+						slide.style.marginLeft = '0';
 					} else {
-						// Остальные фото
-						// Вычисляем новый индекс с учетом активного фото
+						// Остальные слайды
+						// Вычисляем новый индекс с учетом активного слайда
 						let stackIndex;
-						if (imgIndex < activeIndex) {
-							stackIndex = imgIndex + 1;
+						if (slideIndex < activeIndex) {
+							stackIndex = slideIndex + 1;
 						} else {
-							stackIndex = imgIndex;
+							stackIndex = slideIndex;
 						}
-						image.style.zIndex = (stackIndex * -1).toString();
-						image.style.marginTop = (stackIndex * 18) + 'px';
-						image.style.marginLeft = (stackIndex * 18) + 'px';
+						slide.style.zIndex = (stackIndex * -1).toString();
+						slide.style.marginTop = (stackIndex * 18) + 'px';
+						slide.style.marginLeft = (stackIndex * 18) + 'px';
 					}
-					image.classList.toggle('accordion-gallery__slide_active', imgIndex === activeIndex)
+					slide.classList.toggle('accordion-gallery__slide_active', slideIndex === activeIndex)
 				});
 
 				// Прокрутка для мобильных устройств (до 992px)

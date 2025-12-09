@@ -12,9 +12,7 @@ const { class: className } = Astro.props;
 ---
 
 <section class:list={[className, "how-to-create container"]}>
-	<Title class="how-to-create__title" as="h2" size={2}
-		>Як створити Онлайн Меморіал</Title
-	>
+	<Title class="how-to-create__title" as="h2" size={2}>Як створити Онлайн Меморіал</Title>
 	<Guide />
 	<div class="how-to-create__actions">
 		<Btn class="how-to-create__btn" as="a" href="#" theme="success" variant="fill"

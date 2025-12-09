@@ -13,15 +13,7 @@ interface Props {
 	class?: string;
 }
 
-const {
-	class: className,
-	slug,
-	preview,
-	title,
-	description,
-	date,
-	dateHuman,
-} = Astro.props;
+const { class: className, slug, preview, title, description, date, dateHuman } = Astro.props;
 ---
 
 <article class:list={[className, "news-card"]}>

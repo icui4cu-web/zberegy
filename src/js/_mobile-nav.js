@@ -1,5 +1,5 @@
-const openBtn = document.querySelector('[data-mobile-nav-open]')
-const closeBtn = document.querySelector('[data-mobile-nav-close]')
+const openBtn = document.querySelector('[data-mobile-nav-open-btn]')
+const closeBtn = document.querySelector('[data-mobile-nav-close-btn]')
 const overlay = document.querySelector('[data-mobile-nav-overlay]')
 
 function toggle(isActive) {

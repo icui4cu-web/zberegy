@@ -1,0 +1,61 @@
+---
+import Form from "@components/Form/Form.astro";
+import FormGroup from "@components/Form/FormGroup.astro";
+import Input from "@components/Input/Input.astro";
+import Select from "@components/Select/Select.astro";
+import Textarea from "@components/Textarea/Textarea.astro";
+import BtnCircle from "@components/BtnCircle/BtnCircle.astro";
+import "./contacts.scss";
+---
+
+<div class="contacts container">
+	<div class="contacts__inner">
+		<div class="contacts__text wysiwyg">
+			<h1>Зв'язатися з нами</h1>
+			<p>
+				Якщо у Вас виникли питання щодо роботи нашого сервісу, маєте цікаві пропозиції щодо його
+				розвитку, варіанти співпраці або Ви помітили помилку, то зв'яжіться з нами, і ми спробуємо
+				максимально швидко відповісти. Ми завжди раді будь-яким новим ідеям та адекватно ставимося до
+				конструктивної критики.
+			</p>
+		</div>
+		<Form action="https://zberegy-dev.netlify.app/.netlify/functions/contact-us">
+			<FormGroup label="ПІБ*" for="contact-name" errorMsg="Введіть ПІБ">
+				<Input class="form__control" id="contact-name" name="name" placeholder="Ваше Ім’я" required />
+			</FormGroup>
+			<FormGroup label="E-mail*" for="contact-email" errorMsg="Введіть email">
+				<Input
+					class="form__control"
+					id="contact-email"
+					name="email"
+					type="email"
+					placeholder="Введіть Ваш e-mail"
+					required
+				/>
+			</FormGroup>
+			<FormGroup label="Тема повідомлення*" for="contact-subject" errorMsg="Оберіть тему">
+				<Select class="form__control" id="contact-subject" name="subject" required>
+					<option selected="" disabled="" value="">Оберіть певну тему</option>
+					<option>Тема 1</option>
+					<option>Тема 2</option>
+					<option>Тема 3</option>
+				</Select>
+			</FormGroup>
+			<FormGroup label="Текст повідомлення*" for="contact-message" errorMsg="Введіть текст повідомлення">
+				<Textarea
+					class="form__control"
+					id="contact-message"
+					name="message"
+					placeholder="Напишіть текст"
+					maxlength={1000}
+					rows={4}
+					counter={true}
+					required
+				/>
+			</FormGroup>
+			<div class="form__actions">
+				<BtnCircle as="button">Надіслати</BtnCircle>
+			</div>
+		</Form>
+	</div>
+</div>

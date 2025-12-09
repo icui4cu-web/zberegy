@@ -7,13 +7,7 @@ import Pagination from "@components/Pagination/Pagination.astro";
 ---
 
 <Layout>
-	<Breadcrumbs
-		list={[
-			{
-				text: "Новини",
-			},
-		]}
-	/>
+	<Breadcrumbs list={[{ text: "Новини" }]} />
 	<Title class="page__title container" as="h1" size={1}>Новини</Title>
 	<NewsList />
 	<Pagination class="page__pagination" />

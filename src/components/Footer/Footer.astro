@@ -18,10 +18,7 @@ const { class: className } = Astro.props;
 	<div class="footer__top container">
 		<div class="footer__logo-col">
 			<Logo class="footer__logo" />
-			<p class="footer__about">
-				Шляхом додавання основної або детальної інформації. Введіть кілька деталей,
-				запросіть гостей і додайте пару спогадів. Це все, що вам потрібно зробити.
-			</p>
+			<p class="footer__about">Шляхом додавання основної або детальної інформації. Введіть кілька деталей, запросіть гостей і додайте пару спогадів. Це все, що вам потрібно зробити.</p>
 		</div>
 		<div class="footer__navigations">
 			{
@@ -50,7 +47,7 @@ const { class: className } = Astro.props;
 							size={6}
 							aria-expanded="false"
 							aria-controls={id}
-							data-footer-nav-toggler
+							data-footer-nav-toggler=""
 						>
 							{title}
 							<Icon class="footer__title-arrow" id="chevron-down" />
@@ -63,9 +60,7 @@ const { class: className } = Astro.props;
 	</div>
 	<div class="footer__bottom container">
 		<address class="footer__contacts">
-			<Title class="footer__socials-title" as="p" size={6}>
-				Ми в соціальних мережах:
-			</Title>
+			<Title class="footer__socials-title" as="p" size={6}>Ми в соціальних мережах:</Title>
 			<Socials class="footer__socials" />
 		</address>
 		<Partners class="footer__partners" />

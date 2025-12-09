@@ -1,0 +1,12 @@
+---
+import "./select.scss";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"select"> {
+	class?: string;
+}
+
+const { class: className, ...rest } = Astro.props;
+---
+
+<select class:list={[className, "select"]} {...rest}><slot /></select>

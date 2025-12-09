@@ -30,13 +30,12 @@ const { list, galleryId } = Astro.props;
 				))
 			}
 		</div>
-		
 	</div>
 	<button
 		class="slider-gallery__btn slider-gallery__btn_dir_prev"
 		type="button"
 		aria-label="Попереднє фото"
-		data-btn
+		data-slider-gallery-btn
 	>
 		<Icon id="arrow-left" />
 	</button>
@@ -44,7 +43,7 @@ const { list, galleryId } = Astro.props;
 		class="slider-gallery__btn slider-gallery__btn_dir_next"
 		type="button"
 		aria-label="Наступне фото"
-		data-btn
+		data-slider-gallery-btn
 	>
 		<Icon id="arrow-right" />
 	</button>

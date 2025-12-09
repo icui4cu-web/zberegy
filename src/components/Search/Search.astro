@@ -20,20 +20,20 @@ const { class: className } = Astro.props;
 			theme="light"
 			icon="chevron-right"
 			title="Закрити пошук"
-			data-close-btn
+			data-search-close-btn=""
 		/>
 		<input
 			class="search__query"
 			type="search"
 			placeholder="Пошук меморіалів"
 			minlength="2"
-			data-input
+			data-search-input
 		/>
 		<button
 			class="search__reset"
 			type="button"
 			area-label="Очистити пошуковий запит"
-			data-reset-btn
+			data-search-reset-btn
 		>
 			<Icon id="x" />
 		</button>
@@ -50,6 +50,6 @@ const { class: className } = Astro.props;
 		theme="light"
 		icon="search"
 		title="Відкрити пошук"
-		data-open-btn=""
+		data-search-open-btn=""
 	/>
 </search>

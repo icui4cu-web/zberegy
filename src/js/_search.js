@@ -3,14 +3,14 @@ function toggle(search, isOpen) {
 }
 
 function reset(search) {
-	const input = search.querySelector('[data-input]')
+	const input = search.querySelector('[data-search-input]')
 	input.value = ''
 }
 
 function init(search) {
-	const resetBtn = search.querySelector('[data-reset-btn]')
-	const openBtn = search.querySelector('[data-open-btn]')
-	const closeBtn = search.querySelector('[data-close-btn]')
+	const resetBtn = search.querySelector('[data-search-reset-btn]')
+	const openBtn = search.querySelector('[data-search-open-btn]')
+	const closeBtn = search.querySelector('[data-search-close-btn]')
 
 	resetBtn.addEventListener('click', () => reset(search))
 	openBtn.addEventListener('click', () => toggle(search, true))
