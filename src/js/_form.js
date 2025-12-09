@@ -12,17 +12,22 @@ async function submitForm(form) {
 		lockButtons(submitButtons, true)
 
 		const formData = new FormData(form)
+		const data = Object.fromEntries(formData);
 		const response = await fetch(form.action, {
 			method: 'POST',
-			body: formData
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			},
+			body: JSON.stringify(data)
 		})
 
 		if (!response.ok) {
 			throw new Error(`HTTP error! status: ${response.status}`)
 		}
 
-		const data = await response.json()
-		return data
+		const result = await response.json();
+		return result
 
 	} catch (error) {
 		console.error('Ошибка отправки формы:', error)
