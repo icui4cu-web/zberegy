@@ -77,14 +77,14 @@ exports.handler = async (event, context) => {
 		if (errors.length > 0) {
 			return {
 				statusCode: 400,
-				headers: { 'Content-Type': 'application/json' },
+				headers,
 				body: JSON.stringify({ errors })
 			};
 		}
 
 		return {
 			statusCode: 200,
-			headers: { 'Content-Type': 'application/json' },
+			headers,
 			body: JSON.stringify({
 				success: true,
 				message: 'Форма успішно відправлена!'
@@ -95,7 +95,7 @@ exports.handler = async (event, context) => {
 		// Обработка ошибок парсинга JSON или других ошибок
 		return {
 			statusCode: 500,
-			headers: { 'Content-Type': 'application/json' },
+			headers,
 			body: JSON.stringify({
 				error: 'Помилка обробки запиту',
 				details: error.message
