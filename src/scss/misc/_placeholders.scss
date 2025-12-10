@@ -15,6 +15,6 @@
 
 	@at-root ._validated &:user-invalid,
 	&._invalid {
-		border-color: #f00;
+		border-color: #f00 !important;
 	}
 }

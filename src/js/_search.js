@@ -1,20 +1,20 @@
-function toggle(search, isOpen) {
-	search.classList.toggle('search_open', isOpen)
+function toggle(search) {
+	search.classList.toggle('search_open')
 }
 
 function reset(search) {
-	const input = search.querySelector('[data-search-input]')
+	const input = search.querySelector('.search__query')
 	input.value = ''
 }
 
 function init(search) {
-	const resetBtn = search.querySelector('[data-search-reset-btn]')
-	const openBtn = search.querySelector('[data-search-open-btn]')
-	const closeBtn = search.querySelector('[data-search-close-btn]')
+	const resetBtn = search.querySelector('.search__reset')
+	const toggleBtns = search.querySelectorAll('.search__toggle')
 
 	resetBtn.addEventListener('click', () => reset(search))
-	openBtn.addEventListener('click', () => toggle(search, true))
-	closeBtn.addEventListener('click', () => toggle(search, false))
+	toggleBtns.forEach(btn => {
+		btn.addEventListener('click', () => toggle(search))
+	})
 }
 
-document.querySelectorAll('[data-search]').forEach(search => init(search))
+document.querySelectorAll('.search').forEach(search => init(search))

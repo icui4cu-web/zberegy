@@ -6,7 +6,7 @@ import AuthActions from "@components/AuthActions/AuthActions.astro";
 import "./mobile-nav.scss";
 ---
 
-<div class="mobile-nav" data-mobile-nav>
+<div class="mobile-nav">
 	<BtnIcon
 		class="mobile-nav__close-btn"
 		as="button"
@@ -15,7 +15,6 @@ import "./mobile-nav.scss";
 		theme="light"
 		size="sm"
 		title="Закрити меню"
-		data-mobile-nav-close-btn=""
 	/>
 	<div class="mobile-nav__content">
 		<AuthActions class="mobile-nav__auth" />
@@ -44,4 +43,4 @@ import "./mobile-nav.scss";
 		}
 	</div>
 </div>
-<div class="mobile-nav-overlay" data-mobile-nav-overlay></div>
+<div class="mobile-nav-overlay"></div>

@@ -45,7 +45,7 @@ const data = [
 ];
 ---
 
-<section class:list={[className, "accordion-gallery container"]} data-accordion-gallery>
+<section class:list={[className, "accordion-gallery container"]}>
 	<div class="accordion-gallery__text">
 		<Title class="accordion-gallery__title" as="h2" size={2}>Можливості Меморіалу</Title>
 		{
@@ -55,7 +55,7 @@ const data = [
 					{title}
 					{isOpen}
 					name={accordionName}
-					data-accordion-gallery-trigger={index}
+					data-index={index}
 				>
 					<Fragment set:html={description} />
 					<img
@@ -84,7 +84,6 @@ const data = [
 					height="461"
 					loading="lazy"
 					decoding="async"
-					data-accordion-gallery-slide
 				/>
 			))
 		}

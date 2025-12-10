@@ -21,7 +21,8 @@
 		font: var(--font-mini-text);
 		color: red;
 
-		#{$root}._validated :user-invalid ~ & {
+		#{$root}._validated :user-invalid ~ &,
+		#{$root}__group_invalid & {
 			display: block;
 		}
 	}

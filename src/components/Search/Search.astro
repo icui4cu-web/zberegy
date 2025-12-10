@@ -10,7 +10,7 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<search class:list={[className, "search"]} data-search>
+<search class:list={[className, "search"]}>
 	<form class="search__form">
 		<BtnIcon
 			class="search__toggle"
@@ -20,20 +20,17 @@ const { class: className } = Astro.props;
 			theme="light"
 			icon="chevron-right"
 			title="Закрити пошук"
-			data-search-close-btn=""
 		/>
 		<input
 			class="search__query"
 			type="search"
 			placeholder="Пошук меморіалів"
 			minlength="2"
-			data-search-input
 		/>
 		<button
 			class="search__reset"
 			type="button"
 			area-label="Очистити пошуковий запит"
-			data-search-reset-btn
 		>
 			<Icon id="x" />
 		</button>
@@ -50,6 +47,5 @@ const { class: className } = Astro.props;
 		theme="light"
 		icon="search"
 		title="Відкрити пошук"
-		data-search-open-btn=""
 	/>
 </search>

@@ -12,10 +12,10 @@ const { class: className, counter, maxlength, ...rest } = Astro.props;
 const showCounter = counter && maxlength > 0;
 ---
 
-<textarea class:list={[className, "textarea"]} {maxlength} {...rest} data-textarea></textarea>
+<textarea class:list={[className, "textarea"]} {maxlength} {...rest}></textarea>
 {
 	showCounter && (
-		<div class="textarea-counter" data-textarea-counter>
+		<div class="textarea-counter">
 			0/{maxlength}
 		</div>
 	)

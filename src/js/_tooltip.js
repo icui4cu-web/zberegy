@@ -1,4 +1,4 @@
-const tooltip = document.getElementById('tooltip');
+const tooltip = document.querySelector('.tooltip');
 let popperInstance = null;
 
 export function showTooltip(button) {

@@ -1,4 +1,4 @@
-document.querySelectorAll("[data-footer-nav-toggler]").forEach((btn) => {
+document.querySelectorAll(".footer__nav-title").forEach((btn) => {
 	btn.addEventListener("click", () => {
 		const targetId = btn.getAttribute("aria-controls");
 		const nav = document.getElementById(targetId);

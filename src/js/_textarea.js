@@ -1,10 +1,10 @@
-const textareas = document.querySelectorAll('[data-textarea-field]');
+const textareas = document.querySelectorAll('.textarea');
 
 textareas.forEach(textarea => {
-	const counter = textarea.closest('[data-textarea]')?.querySelector('[data-textarea-counter]');
+	const counter = textarea.nextElementSibling;
 	const maxLength = textarea.getAttribute('maxlength');
 
-	if (!counter || !maxLength) return;
+	if (!counter.classList.contains('textarea-counter') || !maxLength) return;
 
 	function updateCounter() {
 		const currentLength = textarea.value.length;

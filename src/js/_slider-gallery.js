@@ -1,6 +1,6 @@
-document.querySelectorAll('[data-slider-gallery]').forEach(container => {
+document.querySelectorAll('.slider-gallery').forEach(container => {
 	const swiper = container.querySelector('.swiper')
-	const navBtns = container.querySelectorAll('[data-slider-gallery-btn]')
+	const navBtns = container.querySelectorAll('.slider-gallery__btn')
 	const pagination = container.querySelector('.swiper-pagination')
 
 	new Swiper(swiper, {

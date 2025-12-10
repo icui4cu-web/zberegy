@@ -8,6 +8,6 @@ interface Props {
 const { action, ...rest } = Astro.props;
 ---
 
-<form class="form" {action} {...rest} method="post" data-form novalidate>
+<form class="form" {action} {...rest} method="post" novalidate>
 	<slot />
 </form>

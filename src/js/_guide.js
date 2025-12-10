@@ -9,7 +9,7 @@ if (typeof Swiper !== 'undefined') {
 			}
 		} else {
 			if (!swiperInstance) {
-				swiperInstance = new Swiper('[data-guide-slider]', {
+				swiperInstance = new Swiper('.guide', {
 					pagination: {
 						el: '.swiper-pagination'
 					}

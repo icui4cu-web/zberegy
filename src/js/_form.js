@@ -5,6 +5,38 @@ function lockButtons(buttons, state) {
 	})
 }
 
+function resetErrors(form) {
+	form.querySelectorAll('.form__group').forEach(group => {
+		const modifiedErrorEl = group.querySelector('.form__error[data-default-message]')
+
+		if(modifiedErrorEl) {
+			modifiedErrorEl.textContent = modifiedErrorEl.dataset.defaultMessage
+		}
+
+		group.classList.remove('form__group_invalid')
+		group.querySelector('._invalid')?.classList.remove('_invalid')
+	})
+}
+
+function showServerErrors(form, errors) {
+	errors.forEach(error => {
+		const field = form.elements[error.field]
+
+		if (field) {
+			const formGroup = field.closest('.form__group')
+			const errorElement = formGroup.querySelector('.form__error')
+
+			if (!errorElement.dataset.defaultMessage) {
+				errorElement.dataset.defaultMessage = errorElement.textContent.trim()
+			}
+
+			errorElement.textContent = error.message
+			formGroup.classList.add('form__group_invalid')
+			field.classList.add('_invalid')
+		}
+	})
+}
+
 async function submitForm(form) {
 	const submitButtons = form.querySelectorAll('button[type="submit"], button:not([type])')
 
@@ -22,11 +54,15 @@ async function submitForm(form) {
 			body: JSON.stringify(data)
 		})
 
+		const result = await response.json();
+
 		if (!response.ok) {
+			if (result.errors && Array.isArray(result.errors)) {
+				showServerErrors(form, result.errors)
+			}
 			throw new Error(`HTTP error! status: ${response.status}`)
 		}
 
-		const result = await response.json();
 		return result
 
 	} catch (error) {
@@ -38,13 +74,14 @@ async function submitForm(form) {
 	}
 }
 
-document.querySelectorAll('[data-form]').forEach(form => {
+document.querySelectorAll('.form').forEach(form => {
 	form.addEventListener('submit', async event => {
 		event.preventDefault()
+		resetErrors(form);
+		form.classList.add('_validated')
 
 		if (!form.checkValidity()) {
 			event.stopPropagation()
-			form.classList.add('_validated')
 			return
 		}
 
