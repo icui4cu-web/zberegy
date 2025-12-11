@@ -26,7 +26,9 @@ $font-nunito-sans: "Nunito Sans", sans-serif;
 	--font-h4: #{700 fn.rs(20px, 30px)/fn.rs(26px, 40px) $font-nunito-sans};
 	--font-h5: #{700 fn.rs(18px, 24px)/fn.rs(24px, 28px) $font-nunito-sans};
 	--font-h6: #{700 fn.rs(16px, 18px)/fn.rs(22px, 24px) $font-nunito-sans};
-	--font-mini-text: #{400 14px/20px $font-open-sans};
+	--font-mini-text: #{400 fn.rs(12px, 14px)/fn.rs(16px, 20px) $font-open-sans};
+
+	--page-bg: var(--color-white);
 
 	@media (width>=var.$mobile-nav-breakpoint) {
 		scroll-padding-top: 120px;
@@ -45,6 +47,6 @@ $font-nunito-sans: "Nunito Sans", sans-serif;
 body {
 	font: var(--font-body-text);
 	color: var(--color-text-2);
-	background-color: #fff;
+	background-color: var(--page-bg);
 	font-optical-sizing: auto;
 }

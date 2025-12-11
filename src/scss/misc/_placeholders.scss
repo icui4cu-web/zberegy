@@ -1,6 +1,8 @@
+@use "@scss/fn";
+
 %form-control-base {
-	--padding-inline: 19px;
-	min-height: 60px;
+	--padding-inline: #{fn.rs(15px, 19px)};
+	min-height: fn.rs(50px, 60px);
 	background-color: #fff;
 	border: 1px solid #DEDEDE;
 	border-radius: 10px;

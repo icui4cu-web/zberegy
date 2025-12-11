@@ -1,12 +1,56 @@
 @use "sass:math";
 @use "@scss/var";
+@use "@scss/fn";
 
 .contacts {
-	&__inner {
-		max-width: 526px;
+	position: relative;
+	overflow-x: clip;
+
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
 	}
 
 	&__text {
-		margin-bottom: 40px;
+		margin-bottom: fn.rs(20px, 40px);
+	}
+
+	@media (width<var.$contact-us-breakpoint) {
+		padding-bottom: 350px;
+		background: url('/assets/img/pigeon.svg') center bottom / auto 300px no-repeat,
+			linear-gradient(to bottom, transparent, rgba($color: #ffff00, $alpha: 0.05) 20% 80%, transparent) center top 100px / auto calc(100% - 450px) no-repeat;
+
+		&::after {
+			bottom: 100px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 254px;
+			height: 147px;
+			background: rgba($color: #1778F2, $alpha: 0.5);
+			filter: blur(112px);
+		}
+	}
+
+	@media (width>=var.$contact-us-breakpoint) {
+		&__content {
+			max-width: 526px;
+		}
+
+		&::after {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: url('/assets/img/contact-us.svg') center / contain no-repeat;
+			aspect-ratio: 2642/1448;
+			width: 140%;
+			max-width: 2642px;
+		}
+	}
+
+	@supports not(overflow-x: clip) {
+		&::after {
+			content: none;
+		}
 	}
 }

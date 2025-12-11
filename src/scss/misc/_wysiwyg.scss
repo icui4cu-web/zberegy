@@ -14,7 +14,7 @@
 	}
 
 	p {
-		margin-block: fn.rs(22px, 26px);
+		margin-block: fn.rs(16px, 26px);
 
 		&:has(> img:only-child) {
 			margin-block: fn.rs(20px, 40px);
