@@ -35,12 +35,18 @@ import "./contacts.scss";
 					/>
 				</FormGroup>
 				<FormGroup label="Тема повідомлення*" for="contact-subject" errorMsg="Оберіть тему">
-					<Select class="form__control" id="contact-subject" name="subject" required>
-						<option selected="" disabled="" value="">Оберіть певну тему</option>
-						<option>Тема 1</option>
-						<option>Тема 2</option>
-						<option>Тема 3</option>
-					</Select>
+					<Select
+						class="form__control"
+						id="contact-subject"
+						name="subject"
+						required
+						options={[
+							{ value: "", text: "Оберіть певну тему", selected: true, disabled: true },
+							{ text: "Тема 1" },
+							{ text: "Тема 2" },
+							{ text: "Тема 3" },
+						]}
+					/>
 				</FormGroup>
 				<FormGroup
 					label="Текст повідомлення*"

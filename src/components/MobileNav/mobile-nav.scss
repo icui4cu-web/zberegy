@@ -71,3 +71,9 @@ $transition-duration: .5s;
 		display: none;
 	}
 }
+
+.mobile-nav-scroll-lock {
+	@media (width<var.$mobile-nav-breakpoint) {
+		overflow: hidden;
+	}
+}

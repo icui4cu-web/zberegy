@@ -1,0 +1,15 @@
+---
+import Icon from "@components/Icon/Icon.astro";
+import FormSendModal from "./contents/FormSentModal/FormSentModal.astro";
+import "./modal.scss";
+---
+
+<dialog id="modal" class="modal" closedby="any">
+	<form class="modal__close-wrapper" method="dialog">
+		<button class="modal__close" aria-label="Закрити" autofocus>
+			<Icon id="error" />
+		</button>
+	</form>
+	<!-- <slot /> -->
+	<FormSendModal />
+</dialog>

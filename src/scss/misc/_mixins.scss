@@ -1,14 +1,21 @@
 @use "@scss/fn";
 
-%form-control-base {
+@mixin form-control-base {
 	--padding-inline: #{fn.rs(15px, 19px)};
 	min-height: fn.rs(50px, 60px);
 	background-color: #fff;
 	border: 1px solid #DEDEDE;
-	border-radius: 10px;
+	border-radius: fn.rs(5px, 10px);
 	color: var(--color-text-1);
 	font: var(--font-body-text);
 	transition: border-color .25s;
+
+	&_size {
+		&_xs {
+			--padding-inline: 9px;
+			min-height: fn.rs(30px, 40px);
+		}
+	}
 
 	&:focus,
 	&:not(:disabled):hover {

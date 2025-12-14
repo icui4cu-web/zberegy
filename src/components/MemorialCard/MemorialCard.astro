@@ -1,0 +1,51 @@
+---
+import Title from "@components/Title/Title.astro";
+import BtnIcon from "@components/BtnIcon/BtnIcon.astro";
+import "./memorial-card.scss";
+
+interface Props {
+	slug: string;
+	photo: string | null;
+	name: string;
+	location: string;
+	lifespan: string;
+	about: string;
+	class?: string;
+}
+
+const { slug, photo, name, location, lifespan, about, class: className } = Astro.props;
+---
+
+<article class:list={[className, "memorial-card"]}>
+	<a class="memorial-card__link" href={`/${slug}`}>
+		<img
+			class="memorial-card__img"
+			src={photo || "/assets/img/no-photo.svg"}
+			alt={name}
+			width="312"
+			height="312"
+			loading="lazy"
+			decoding="async"
+		/>
+		<div class="memorial-card__content">
+			<div class="memorial-card__header">
+				<Title class="memorial-card__title" as="h2" size={2}>{name}</Title>
+				<p class="memorial-card__location">{location}</p>
+				<p class="memorial-card__lifespan">{lifespan}</p>
+			</div>
+			<div class="memorial-card__about">{about}</div>
+		</div>
+	</a>
+	<div class="memorial-card__actions">
+		<BtnIcon
+			class="memorial-card__btn"
+			as="button"
+			type="button"
+			icon="star-empty"
+			data-tooltip="Додати в Обрані Меморіали"
+			ariaLabel="Додати в Обрані Меморіали"
+			size="sm"
+			theme="white"
+		/>
+	</div>
+</article>

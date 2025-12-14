@@ -1,0 +1,26 @@
+@use "@scss/fn";
+
+.form-sent-modal {
+	padding: fn.rs(60px, 90px) 19px;
+	max-width: 700px;
+	text-align: center;
+
+	&__icon {
+		margin: 0 auto fn.rs(30px, 40px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: fit-content;
+		padding: 10px;
+		background-color: #3ED05E;
+		color: #fff;
+		border-radius: 50%;
+		font-size: fn.rs(30px, 60px);
+	}
+
+	&__message {
+		max-width: 500px;
+		margin-inline: auto;
+		font: var(--font-h6);
+	}
+}

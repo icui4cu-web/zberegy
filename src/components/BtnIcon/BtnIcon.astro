@@ -5,7 +5,7 @@ import "./btn-icon.scss";
 
 type Props<Tag extends HTMLTag> = Polymorphic<{
 	as: Tag;
-	title: string;
+	ariaLabel: string;
 	icon?: string;
 	iconSize?: number;
 	size: "lg" | "md" | "sm";
@@ -13,13 +13,13 @@ type Props<Tag extends HTMLTag> = Polymorphic<{
 	class?: string;
 }>;
 
-const { class: className, as: Tag, size, theme, icon, iconSize, title, ...props } = Astro.props;
+const { class: className, as: Tag, size, theme, icon, iconSize, ariaLabel, ...rest } = Astro.props;
 ---
 
 <Tag
 	class:list={[className, `btn-icon btn-icon_size_${size} btn-icon_theme_${theme}`]}
-	{title}
-	{...props}
+	aria-label={ariaLabel}
+	{...rest}
 >
 	<Icon class="btn-icon__icon" id={icon} width={iconSize} height={iconSize} />
 </Tag>

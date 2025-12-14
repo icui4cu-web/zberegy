@@ -17,18 +17,12 @@
 		margin-bottom: fn.rs(16px, 20px);
 	}
 
-	&__widget,
-	&__navigation {
+	&__widget {
 		margin-top: fn.rs(30px, 40px);
 	}
 
 	&__widget-title {
 		margin-bottom: fn.rs(16px, 30px);
-	}
-
-	&__navigation {
-		padding-top: fn.rs(30px, 40px);
-		border-top: 1px solid #DEDEDE;
 	}
 
 	@supports (initial-letter: 3) {

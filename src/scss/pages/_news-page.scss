@@ -1,0 +1,9 @@
+@use "@scss/fn";
+
+.news-page {
+	&__navigation {
+		margin-top: fn.rs(30px, 40px);
+		padding-top: fn.rs(30px, 40px);
+		border-top: 1px solid #DEDEDE;
+	}
+}

@@ -1,8 +1,27 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Breadcrumbs from "@components/Breadcrumbs/Breadcrumbs.astro";
+import Title from "@components/Title/Title.astro";
+import MemorialsList from "@components/MemorialsList/MemorialsList.astro";
+import TitleBar from "@components/TitleBar/TitleBar.astro";
+import ViewControl from "@components/ViewControl/ViewControl.astro";
 ---
 
 <Layout>
 	<Breadcrumbs list={[{ text: "Результати пошуку" }]} />
+	<Title class="page__title container" as="h1" size={1}><span class="text-danger">В разработке</span></Title>
+	<TitleBar class="page__title container">
+		<Title as="h1" size={1}>Знайдено Меморіалів: <span class="text-success">4</span></Title>
+		<ViewControl
+			id="sort"
+			label="Сортувати за:"
+			options={[
+				{ value: "surname", text: "Прізвищем" },
+				{ value: "name", text: "Ім'ям" },
+				{ value: "patronymic", text: "По-батькові" },
+				{ value: "date", text: "Датою" },
+			]}
+		/>
+	</TitleBar>
+	<MemorialsList />
 </Layout>

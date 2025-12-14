@@ -1,0 +1,28 @@
+---
+import Select from "@components/Select/Select.astro";
+import "./view-control.scss";
+
+interface SelectOption {
+	value: string;
+	text: string;
+	disabled?: boolean;
+	selected?: boolean;
+	[key: string]: any;
+}
+
+interface Props {
+	id: string;
+	label: string;
+	options: SelectOption[];
+	class?: string;
+}
+
+const { id, label, options } = Astro.props;
+---
+
+<div class="view-control">
+	<label class="view-control__lalel" for={id}>
+		{label}
+	</label>
+	<Select class="view-control__field" {id} {options} size="xs" />
+</div>

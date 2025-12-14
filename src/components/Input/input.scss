@@ -1,7 +1,7 @@
-@use "@scss/misc/placeholders" as *;
+@use "@scss/misc/mixins";
 
 .input {
-	@extend %form-control-base;
+	@include mixins.form-control-base;
 	padding: 0 var(--padding-inline);
 
 	&::placeholder {

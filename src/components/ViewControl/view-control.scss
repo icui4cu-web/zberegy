@@ -1,0 +1,11 @@
+.view-control {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	color: var(--color-text-3);
+	font: var(--font-mini-text);
+
+	&__field {
+		max-width: 300px;
+	}
+}

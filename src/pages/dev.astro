@@ -1,5 +1,6 @@
 ---
-import Pagination from "@components/Pagination/Pagination.astro";
+import Modal from "@components/Modal/Modal.astro";
+
 import "@scss/index.scss";
 ---
 
@@ -22,7 +23,13 @@ import "@scss/index.scss";
 	<body class="page">
 		<div style="height: 100px;"></div>
 
-		<Pagination />
+		<Modal>
+			123
+		</Modal>
+
+		<script>
+			document.getElementById('modal').showModal()
+		</script>
 
 		<script src="@js/index.js"></script>
 	</body>

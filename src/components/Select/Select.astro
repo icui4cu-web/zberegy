@@ -2,11 +2,29 @@
 import "./select.scss";
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"select"> {
-	class?: string;
+interface SelectOption {
+	text: string;
+	value?: string;
+	disabled?: boolean;
+	selected?: boolean;
+	[key: string]: any;
 }
 
-const { class: className, ...rest } = Astro.props;
+interface Props extends HTMLAttributes<"select"> {
+	options: SelectOption[];
+	class?: string;
+	size?: "xs";
+}
+
+const { class: className, size, options, ...rest } = Astro.props;
 ---
 
-<select class:list={[className, "select"]} {...rest}><slot /></select>
+<select class:list={[className, "select", size && `select_size_${size}`]} {...rest}>
+	{
+		options.map(({ value, text, ...optionRest }) => (
+			<option {value} {...optionRest}>
+				{text}
+			</option>
+		))
+	}
+</select>
