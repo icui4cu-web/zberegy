@@ -1,6 +1,7 @@
 .guide {
 	$root: &;
 	counter-reset: guide;
+	overflow: clip visible;
 
 	&__item {
 		text-align: center;
